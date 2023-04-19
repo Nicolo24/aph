@@ -4,7 +4,7 @@
         <div class="form-group">
             {{ Form::label('center') }}
 
-            <div class="col-md-6">
+            <div>
                 <select id="center_id" class="form-control @error('center_id') is-invalid @enderror" name="center_id"
                     required>
                     @foreach (\App\Models\Center::all() as $center)
@@ -23,7 +23,7 @@
         <div class="form-group">
             {{ Form::label('province') }}
 
-            <div class="col-md-6">
+            <div>
                 <select id="province_id" class="form-control @error('province_id') is-invalid @enderror"
                     name="province_id" required>
                     @foreach (\App\Models\Province::all() as $province)
@@ -42,7 +42,7 @@
         <div class="form-group">
             {{ Form::label('zone') }}
 
-            <div class="col-md-6">
+            <div>
                 <select id="zone_id" class="form-control @error('province_id') is-invalid @enderror" name="zone_id"
                     required>
                     @foreach (\App\Models\Zone::all() as $zone)
@@ -61,7 +61,7 @@
         <div class="form-group">
             {{ Form::label('institution') }}
 
-            <div class="col-md-6">
+            <div>
                 <select id="institution_id" class="form-control @error('institution_id') is-invalid @enderror"
                     name="institution_id" required>
                     @foreach (\App\Models\Institution::all() as $institution)
@@ -81,7 +81,7 @@
         <div class="form-group">
             {{ Form::label('resource type') }}
 
-            <div class="col-md-6">
+            <div>
                 <select id="resourcetype_id" class="form-control @error('basetype') is-invalid @enderror" name="resourcetype_id"
                     required>
                     @foreach (\App\Models\Resourcetype::all() as $resourcetype)
@@ -113,7 +113,7 @@
         </div>
 
     </div>
-    <div class="box-footer mt20">
+    <div class="box-footer mt-2">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>

@@ -1,23 +1,21 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Basis
+    User
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
+    <div class="d-flex justify-content-center">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Basis') }}
+                                {{ __('User') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('bases.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                             <div class="float-end">
+                                <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-end"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -34,45 +32,39 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
                                         
-										<th>Center Id</th>
-										<th>Province Id</th>
-										<th>Zone Id</th>
-										<th>Institution Id</th>
-										<th>Basetype Id</th>
+										<th>Center</th>
+										<th>Province</th>
+										<th>Zone</th>
+										<th>Institution</th>
+										<th>Usertype</th>
 										<th>Name</th>
-										<th>Latitude</th>
-										<th>Longitude</th>
-										<th>Comment</th>
-										<th>Is Active</th>
+										<th>Email</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($bases as $basis)
+                                    @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td>{{ $user->id }}</td>
                                             
-											<td>{{ $basis->center_id }}</td>
-											<td>{{ $basis->province_id }}</td>
-											<td>{{ $basis->zone_id }}</td>
-											<td>{{ $basis->institution_id }}</td>
-											<td>{{ $basis->basetype_id }}</td>
-											<td>{{ $basis->name }}</td>
-											<td>{{ $basis->latitude }}</td>
-											<td>{{ $basis->longitude }}</td>
-											<td>{{ $basis->comment }}</td>
-											<td>{{ $basis->is_active }}</td>
+											<td>{{ $user->center->name }}</td>
+											<td>{{ $user->province->name }}</td>
+											<td>{{ $user->zone->name }}</td>
+											<td>{{ $user->institution->name }}</td>
+											<td>{{ $user->usertype->name }}</td>
+											<td>{{ $user->name }}</td>
+											<td>{{ $user->email }}</td>
 
                                             <td>
-                                                <form action="{{ route('bases.destroy',$basis->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('bases.show',$basis->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('bases.edit',$basis->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('users.edit',$user->id) }}"> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -82,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $bases->links() !!}
+                {!! $users->links() !!}
             </div>
         </div>
     </div>

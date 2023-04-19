@@ -115,18 +115,32 @@ class Resource extends Model
 
     public function getReporttypeIdAttribute()
     {
-
         return $this->reports()->orderByDesc('created_at')->first()->reporttype->id ?? false;
     }
+    
     public function getIsOperativeAttribute()
     {
-
         return $this->reports()->orderByDesc('created_at')->first()->reporttype->is_operative ?? false;
     }
 
     public function getIconAttribute()
     {
         return $this->getIsOperativeAttribute() ? "🟩":"🟥";
+    }
+
+    public function getWasReportedAttribute($when)
+    {
+        return $this->reports()->where('created_at', '<=', $when)->latest()->first() ?? false;
+    }
+
+    public function getWasOperativeAttribute($when)
+    {
+        return $this->getWasReportedAttribute($when)->reporttype->is_operative ?? false;
+    }
+
+    public function getWasOperativeIconAttribute($when)
+    {
+        return $this->getWasOperativeAttribute($when) ? "🟩":"🟥";
     }
     
 }

@@ -5,15 +5,13 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+    <section class="d-flex justify-content-center">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
+                        <div class="float-start">
                             <span class="card-title">Show Assignation</span>
                         </div>
-                        <div class="float-right">
+                        <div class="float-end">
                             <a class="btn btn-primary" href="{{ route('assignations.index') }}"> Back</a>
                         </div>
                     </div>
@@ -22,19 +20,19 @@
                         
                         <div class="form-group">
                             <strong>Resource Id:</strong>
-                            {{ $assignation->resource_id }}
+                            {{ $assignation->resource->name }}
                         </div>
                         <div class="form-group">
                             <strong>Base Id:</strong>
-                            {{ $assignation->base_id }}
+                            {{ $assignation->base->name }}
                         </div>
                         <div class="form-group">
                             <strong>User Id:</strong>
-                            {{ $assignation->user_id }}
+                            {{ $assignation->user->name }}
                         </div>
                         <div class="form-group">
                             <strong>Is Active:</strong>
-                            {{ $assignation->is_active }}
+                            {{ $assignation->is_active?"YES":"NO" }}
                         </div>
 
                     </div>

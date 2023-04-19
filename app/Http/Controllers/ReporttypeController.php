@@ -16,13 +16,6 @@ class ReporttypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $reporttypes = Reporttype::paginate();
-
-        return view('reporttype.index', compact('reporttypes'))
-            ->with('i', (request()->input('page', 1) - 1) * $reporttypes->perPage());
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,8 +40,8 @@ class ReporttypeController extends Controller
 
         $reporttype = Reporttype::create($request->all());
 
-        return redirect()->route('reporttypes.index')
-            ->with('success', 'Reporttype created successfully.');
+        return redirect()->route('classifications.index')
+            ->with('reporttypesuccess', 'Reporttype created successfully.');
     }
 
     /**
@@ -90,8 +83,8 @@ class ReporttypeController extends Controller
 
         $reporttype->update($request->all());
 
-        return redirect()->route('reporttypes.index')
-            ->with('success', 'Reporttype updated successfully');
+        return redirect()->route('classifications.index')
+            ->with('reporttypesuccess', 'Reporttype updated successfully');
     }
 
     /**
@@ -103,7 +96,7 @@ class ReporttypeController extends Controller
     {
         $reporttype = Reporttype::find($id)->delete();
 
-        return redirect()->route('reporttypes.index')
-            ->with('success', 'Reporttype deleted successfully');
+        return redirect()->route('classifications.index')
+            ->with('reporttypesuccess', 'Reporttype deleted successfully');
     }
 }

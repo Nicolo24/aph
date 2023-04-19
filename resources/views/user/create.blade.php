@@ -1,26 +1,23 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Basis
+    Create User
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+    <section class="d-flex justify-content-center">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Basis</span>
+                        <span class="card-title">Create User</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('bases.update', $basis->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ route('users.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('basis.form')
+                            @include('user.form')
 
                         </form>
                     </div>

@@ -5,15 +5,13 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+    <section class="d-flex justify-content-center">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
+                        <div class="float-start">
                             <span class="card-title">Show Institution</span>
                         </div>
-                        <div class="float-right">
+                        <div class="float-end">
                             <a class="btn btn-primary" href="{{ route('institutions.index') }}"> Back</a>
                         </div>
                     </div>

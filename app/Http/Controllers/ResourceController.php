@@ -101,9 +101,21 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        $resource = Resource::find($id)->delete();
+        $resource = Resource::find($id);
+        $resource->is_active = 0;
+        $resource->save();
 
         return redirect()->route('resources.index')
             ->with('success', 'Resource deleted successfully');
+    }
+
+    public function restore($id)
+    {
+        $resource = Resource::find($id);
+        $resource->is_active = 1;
+        $resource->save();
+
+        return redirect()->route('resources.index')
+            ->with('success', 'Resource restored successfully');
     }
 }

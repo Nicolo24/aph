@@ -5,9 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
+    <div class="d-flex justify-content-center">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -16,8 +14,8 @@
                                 {{ __('Zone') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('zones.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                             <div class="float-end">
+                                <a href="{{ route('zones.create') }}" class="btn btn-primary btn-sm float-end"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -34,7 +32,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
                                         
 										<th>Name</th>
 
@@ -44,17 +42,17 @@
                                 <tbody>
                                     @foreach ($zones as $zone)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td>{{ $zone->id }}</td>
                                             
 											<td>{{ $zone->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('zones.destroy',$zone->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('zones.show',$zone->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('zones.edit',$zone->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('zones.show',$zone->id) }}"> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('zones.edit',$zone->id) }}"> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

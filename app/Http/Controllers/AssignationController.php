@@ -18,7 +18,7 @@ class AssignationController extends Controller
      */
     public function index()
     {
-        $assignations = Assignation::paginate();
+        $assignations = Assignation::orderBy('created_at','desc')->paginate();
 
         return view('assignation.index', compact('assignations'))
             ->with('i', (request()->input('page', 1) - 1) * $assignations->perPage());

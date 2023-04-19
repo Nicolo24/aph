@@ -37,7 +37,7 @@ class Report extends Model
      *
      * @var array
      */
-    protected $fillable = ['resource_id','user_id','reporttype_id','comment'];
+    protected $fillable = ['resource_id','user_id','reporttype_id','comment','created_at'];
 
 
     /**
@@ -63,6 +63,7 @@ class Report extends Model
     {
         return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
+
     
 
 }

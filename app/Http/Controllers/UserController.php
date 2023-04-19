@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Basis;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
- * Class BasisController
+ * Class UserController
  * @package App\Http\Controllers
  */
-class BasisController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class BasisController extends Controller
      */
     public function index()
     {
-        $bases = Basis::paginate();
+        $users = User::paginate();
 
-        return view('basis.index', compact('bases'))
-            ->with('i', (request()->input('page', 1) - 1) * $bases->perPage());
+        return view('user.index', compact('users'))
+            ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class BasisController extends Controller
      */
     public function create()
     {
-        $basis = new Basis();
-        return view('basis.create', compact('basis'));
+        $user = new User();
+        return view('user.create', compact('user'));
     }
 
     /**
@@ -43,12 +43,12 @@ class BasisController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Basis::$rules);
+        request()->validate(User::$rules);
 
-        $basis = Basis::create($request->all());
+        $user = User::create($request->all());
 
-        return redirect()->route('bases.index')
-            ->with('success', 'Basis created successfully.');
+        return redirect()->route('users.index')
+            ->with('success', 'User created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class BasisController extends Controller
      */
     public function show($id)
     {
-        $basis = Basis::find($id);
+        $user = User::find($id);
 
-        return view('basis.show', compact('basis'));
+        return view('user.show', compact('user'));
     }
 
     /**
@@ -72,26 +72,26 @@ class BasisController extends Controller
      */
     public function edit($id)
     {
-        $basis = Basis::find($id);
+        $user = User::find($id);
 
-        return view('basis.edit', compact('basis'));
+        return view('user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Basis $basis
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Basis $basis)
+    public function update(Request $request, User $user)
     {
-        request()->validate(Basis::$rules);
+        request()->validate(User::$rules);
 
-        $basis->update($request->all());
+        $user->update($request->all());
 
-        return redirect()->route('bases.index')
-            ->with('success', 'Basis updated successfully');
+        return redirect()->route('users.index')
+            ->with('success', 'User updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class BasisController extends Controller
      */
     public function destroy($id)
     {
-        $basis = Basis::find($id)->delete();
+        $user = User::find($id)->delete();
 
-        return redirect()->route('bases.index')
-            ->with('success', 'Basis deleted successfully');
+        return redirect()->route('users.index')
+            ->with('success', 'User deleted successfully');
     }
 }

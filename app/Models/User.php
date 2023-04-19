@@ -17,6 +17,19 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     static $rules = [
+        'name',
+        'email',
+        'center_id',
+        'province_id',
+        'zone_id',
+        'institution_id',
+        'usertype_id',
+    ];
+    
+    protected $perPage = 20;
+
     protected $fillable = [
         'name',
         'email',

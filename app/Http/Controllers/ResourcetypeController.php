@@ -16,13 +16,6 @@ class ResourcetypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $resourcetypes = Resourcetype::paginate();
-
-        return view('resourcetype.index', compact('resourcetypes'))
-            ->with('i', (request()->input('page', 1) - 1) * $resourcetypes->perPage());
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,8 +40,8 @@ class ResourcetypeController extends Controller
 
         $resourcetype = Resourcetype::create($request->all());
 
-        return redirect()->route('resourcetypes.index')
-            ->with('success', 'Resourcetype created successfully.');
+        return redirect()->route('classifications.index')
+            ->with('resourcetypesuccess', 'Resourcetype created successfully.');
     }
 
     /**
@@ -90,8 +83,8 @@ class ResourcetypeController extends Controller
 
         $resourcetype->update($request->all());
 
-        return redirect()->route('resourcetypes.index')
-            ->with('success', 'Resourcetype updated successfully');
+        return redirect()->route('classifications.index')
+            ->with('resourcetypesuccess', 'Resourcetype updated successfully');
     }
 
     /**
@@ -103,7 +96,7 @@ class ResourcetypeController extends Controller
     {
         $resourcetype = Resourcetype::find($id)->delete();
 
-        return redirect()->route('resourcetypes.index')
-            ->with('success', 'Resourcetype deleted successfully');
+        return redirect()->route('classifications.index')
+            ->with('resourcetypesuccess', 'Resourcetype deleted successfully');
     }
 }

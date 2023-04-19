@@ -5,15 +5,13 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+    <section class="d-flex justify-content-center">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
+                        <div class="float-start">
                             <span class="card-title">Show Report</span>
                         </div>
-                        <div class="float-right">
+                        <div class="float-end">
                             <a class="btn btn-primary" href="{{ route('reports.index') }}"> Back</a>
                         </div>
                     </div>
@@ -22,15 +20,15 @@
                         
                         <div class="form-group">
                             <strong>Resource Id:</strong>
-                            {{ $report->resource_id }}
+                            {{ $report->resource->name }}
                         </div>
                         <div class="form-group">
                             <strong>User Id:</strong>
-                            {{ $report->user_id }}
+                            {{ $report->user->name }}
                         </div>
                         <div class="form-group">
                             <strong>Reporttype Id:</strong>
-                            {{ $report->reporttype_id }}
+                            {{ $report->reporttype->name }}
                         </div>
                         <div class="form-group">
                             <strong>Comment:</strong>

@@ -16,13 +16,6 @@ class UsertypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $usertypes = Usertype::paginate();
-
-        return view('usertype.index', compact('usertypes'))
-            ->with('i', (request()->input('page', 1) - 1) * $usertypes->perPage());
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,8 +40,8 @@ class UsertypeController extends Controller
 
         $usertype = Usertype::create($request->all());
 
-        return redirect()->route('usertypes.index')
-            ->with('success', 'Usertype created successfully.');
+        return redirect()->route('classifications.index')
+            ->with('usertypesuccess', 'Usertype created successfully.');
     }
 
     /**
@@ -90,8 +83,8 @@ class UsertypeController extends Controller
 
         $usertype->update($request->all());
 
-        return redirect()->route('usertypes.index')
-            ->with('success', 'Usertype updated successfully');
+        return redirect()->route('classifications.index')
+            ->with('usertypesuccess', 'Usertype updated successfully');
     }
 
     /**
@@ -103,7 +96,7 @@ class UsertypeController extends Controller
     {
         $usertype = Usertype::find($id)->delete();
 
-        return redirect()->route('usertypes.index')
-            ->with('success', 'Usertype deleted successfully');
+        return redirect()->route('classifications.index')
+            ->with('usertypesuccess', 'Usertype deleted successfully');
     }
 }

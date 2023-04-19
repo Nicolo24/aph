@@ -16,13 +16,6 @@ class BasetypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $basetypes = Basetype::paginate();
-
-        return view('basetype.index', compact('basetypes'))
-            ->with('i', (request()->input('page', 1) - 1) * $basetypes->perPage());
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,8 +40,8 @@ class BasetypeController extends Controller
 
         $basetype = Basetype::create($request->all());
 
-        return redirect()->route('basetypes.index')
-            ->with('success', 'Basetype created successfully.');
+        return redirect()->route('classifications.index')
+            ->with('basetypesuccess', 'Basetype created successfully.');
     }
 
     /**
@@ -90,8 +83,8 @@ class BasetypeController extends Controller
 
         $basetype->update($request->all());
 
-        return redirect()->route('basetypes.index')
-            ->with('success', 'Basetype updated successfully');
+        return redirect()->route('classifications.index')
+            ->with('basetypesuccess', 'Basetype updated successfully');
     }
 
     /**
@@ -103,7 +96,7 @@ class BasetypeController extends Controller
     {
         $basetype = Basetype::find($id)->delete();
 
-        return redirect()->route('basetypes.index')
-            ->with('success', 'Basetype deleted successfully');
+        return redirect()->route('classifications.index')
+            ->with('basetypesuccess', 'Basetype deleted successfully');
     }
 }

@@ -16,6 +16,11 @@
             {{ Form::text('reporttype_id', $report->reporttype_id, ['class' => 'form-control' . ($errors->has('reporttype_id') ? ' is-invalid' : ''), 'placeholder' => 'Reporttype Id']) }}
             {!! $errors->first('reporttype_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class ="form-group">
+            {{ Form::label('created_at') }}
+            {{ Form::text('created_at', $report->created_at, ['class' => 'form-control' . ($errors->has('created_at') ? ' is-invalid' : ''), 'placeholder' => 'Created At']) }}
+            {!! $errors->first('created_at', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
         <div class="form-group">
             {{ Form::label('comment') }}
             {{ Form::text('comment', $report->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comment']) }}
@@ -23,7 +28,7 @@
         </div>
 
     </div>
-    <div class="box-footer mt20">
+    <div class="box-footer mt-2">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
- * @property Basis[] $bases
+ * @property Base[] $bases
  * @property Resource[] $resources
  * @property User[] $users
  * @package App
@@ -40,7 +40,7 @@ class Zone extends Model
      */
     public function bases()
     {
-        return $this->hasMany('App\Models\Basis', 'zone_id', 'id');
+        return $this->hasMany('App\Models\Base', 'zone_id', 'id');
     }
     
     /**

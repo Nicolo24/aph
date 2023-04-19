@@ -5,27 +5,26 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+    <div class="d-flex justify-content-center">
 
-                @includeif('partials.errors')
+        @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Reporttype</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('reporttypes.update', $reporttype->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
+        <div class="card card-default">
+            <div class="card-header">
+                <span class="card-title">Update Reporttype</span>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ route('reporttypes.update', $reporttype->id) }}" role="form"
+                    enctype="multipart/form-data">
+                    {{ method_field('PATCH') }}
+                    @csrf
 
-                            @include('reporttype.form')
+                    @include('reporttype.form')
 
-                        </form>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
+    </div>
     </section>
 @endsection

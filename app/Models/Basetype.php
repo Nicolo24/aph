@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
- * @property Basis[] $bases
+ * @property Base[] $bases
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -39,7 +39,7 @@ class Basetype extends Model
      */
     public function bases()
     {
-        return $this->hasMany('App\Models\Basis', 'basetype_id', 'id');
+        return $this->hasMany('App\Models\Base', 'basetype_id', 'id');
     }
     
 

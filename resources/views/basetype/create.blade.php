@@ -5,25 +5,22 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+    <section class="d-flex justify-content-center">
 
-                @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Basetype</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('basetypes.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
+        @includeif('partials.errors')
 
-                            @include('basetype.form')
+        <div class="card card-default">
+            <div class="card-header">
+                <span class="card-title">Create Basetype</span>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ route('basetypes.store') }}" role="form" enctype="multipart/form-data">
+                    @csrf
 
-                        </form>
-                    </div>
-                </div>
+                    @include('basetype.form')
+
+                </form>
             </div>
         </div>
     </section>

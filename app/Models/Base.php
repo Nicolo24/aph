@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Basis
+ * Class Base
  *
  * @property $id
  * @property $center_id
@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Basis extends Model
+class Base extends Model
 {
     
     static $rules = [
@@ -112,6 +112,7 @@ class Basis extends Model
 
     public function getAssignedResourcesAttribute(){
         return $this->assignations->where('is_active', 1);
+
     }
 
     public function getIsOperativeAttribute(){

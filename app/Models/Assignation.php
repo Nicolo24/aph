@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
- * @property Basis $basis
+ * @property Base $base
  * @property Resource $resource
  * @property User $user
  * @package App
@@ -44,9 +44,9 @@ class Assignation extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function basis()
+    public function base()
     {
-        return $this->hasOne('App\Models\Basis', 'id', 'base_id');
+        return $this->hasOne('App\Models\Base', 'id', 'base_id');
     }
     
     /**

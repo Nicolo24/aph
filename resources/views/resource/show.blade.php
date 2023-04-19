@@ -5,15 +5,13 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+    <section class="d-flex justify-content-center">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
+                        <div class="float-start">
                             <span class="card-title">Show Resource</span>
                         </div>
-                        <div class="float-right">
+                        <div class="float-end">
                             <a class="btn btn-primary" href="{{ route('resources.index') }}"> Back</a>
                         </div>
                     </div>
@@ -22,23 +20,23 @@
                         
                         <div class="form-group">
                             <strong>Center Id:</strong>
-                            {{ $resource->center_id }}
+                            {{ $resource->center->name }}
                         </div>
                         <div class="form-group">
                             <strong>Province Id:</strong>
-                            {{ $resource->province_id }}
+                            {{ $resource->province->name }}
                         </div>
                         <div class="form-group">
                             <strong>Zone Id:</strong>
-                            {{ $resource->zone_id }}
+                            {{ $resource->zone->name }}
                         </div>
                         <div class="form-group">
                             <strong>Institution Id:</strong>
-                            {{ $resource->institution_id }}
+                            {{ $resource->institution->name }}
                         </div>
                         <div class="form-group">
                             <strong>Resourcetype Id:</strong>
-                            {{ $resource->resourcetype_id }}
+                            {{ $resource->resourcetype->name }}
                         </div>
                         <div class="form-group">
                             <strong>Name:</strong>
@@ -50,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Is Active:</strong>
-                            {{ $resource->is_active }}
+                            {{ $resource->is_active?"YES":"NO" }}
                         </div>
 
                     </div>
