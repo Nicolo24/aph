@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="d-flex align-items-center p-3 my-3 text-white bg-secondary rounded shadow-sm">
         <i class="fa-solid fa-truck-medical" style="font-size: 2.5em;"></i>
         <div class="lh-1 px-3">
@@ -63,7 +64,8 @@
                                     <tr>
 
                                         <td class="dropdown align-middle">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre title="{{$assignation->resource->last_report->created_at->subHours(5) ?? ""}} - {{$assignation->resource->last_report->comment ?? ""}}">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre
+                                                title="{{ $assignation->resource->last_report->created_at->subHours(5) ?? '' }} - {{ $assignation->resource->last_report->comment ?? '' }}">
                                                 {{ $assignation->resource->icon }}
                                             </a>
                                             <form action="{{ route('report') }}" method="post">
