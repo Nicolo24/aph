@@ -102,7 +102,9 @@
                                             @csrf
                                             <input type="hidden" name="assignation_id" value="{{ $assignation->id }}">
                                             <td>
-                                                <i type="submit" class="fa-solid fa-xmark fa-xl" style="color: #ff0000;"></i>
+                                                <button type="submit" class="btn btn-link">
+                                                    <i class="fa-solid fa-xmark fa-xl" style="color: #ff0000;"></i>
+                                                </button>
                                             </td>
                                         </form>
                                     </tr>
