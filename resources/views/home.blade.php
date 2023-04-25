@@ -55,15 +55,15 @@
                                     <th scope="col">Resource</th>
                                     <th scope="col">Assigned By</th>
                                     <th scope="col">Assigned At</th>
-                                    <th scope="col">Unassign</th>
+                                    <th scope="col" class=" text-end">Unassign</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($base->assigned_resources as $assignation)
                                     <tr>
 
-                                        <td class="dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <td class="dropdown align-middle">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre title="{{$assignation->resource->last_report->created_at->subHours(5) ?? ""}} - {{$assignation->resource->last_report->comment ?? ""}}">
                                                 {{ $assignation->resource->icon }}
                                             </a>
                                             <form action="{{ route('report') }}" method="post">
@@ -91,9 +91,9 @@
                                                 </div>
                                             </form>
                                         </td>
-                                        <td><a target="_blank" href="{{ route('resources.show', $assignation->resource->id) }}">{{ $assignation->resource->name }}</a></td>
-                                        <td>{{ $assignation->user->name }}</td>
-                                        <td>{{ $assignation->created_at->subHours(5) }}</td>
+                                        <td class="align-middle"><a target="_blank" href="{{ route('resources.show', $assignation->resource->id) }}">{{ $assignation->resource->name }}</a></td>
+                                        <td class="align-middle">{{ $assignation->user->name }}</td>
+                                        <td class="align-middle">{{ $assignation->created_at->subHours(5) }}</td>
 
 
 
@@ -101,9 +101,9 @@
                                         <form action="{{ route('unassign') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="assignation_id" value="{{ $assignation->id }}">
-                                            <td>
+                                            <td class="align-middle text-end">
                                                 <button type="submit" class="btn btn-link">
-                                                    <i class="fa-solid fa-xmark fa-xl" style="color: #ff0000;"></i>
+                                                    <i class="fa-solid fa-xmark fa-2xl" style="color: #ff0000;"></i>
                                                 </button>
                                             </td>
                                         </form>

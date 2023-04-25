@@ -31,15 +31,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Resource extends Model
 {
-    
+
     static $rules = [
-		'center_id' => 'required',
-		'province_id' => 'required',
-		'zone_id' => 'required',
-		'institution_id' => 'required',
-		'resourcetype_id' => 'required',
-		'name' => 'required',
-		'is_active' => 'required',
+        'center_id' => 'required',
+        'province_id' => 'required',
+        'zone_id' => 'required',
+        'institution_id' => 'required',
+        'resourcetype_id' => 'required',
+        'name' => 'required',
+        'is_active' => 'required',
     ];
 
     protected $perPage = 20;
@@ -49,7 +49,7 @@ class Resource extends Model
      *
      * @var array
      */
-    protected $fillable = ['center_id','province_id','zone_id','institution_id','resourcetype_id','name','comment','is_active'];
+    protected $fillable = ['center_id', 'province_id', 'zone_id', 'institution_id', 'resourcetype_id', 'name', 'comment', 'is_active'];
 
 
     /**
@@ -59,7 +59,7 @@ class Resource extends Model
     {
         return $this->hasMany('App\Models\Assignation', 'resource_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -67,7 +67,7 @@ class Resource extends Model
     {
         return $this->hasOne('App\Models\Center', 'id', 'center_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -75,7 +75,7 @@ class Resource extends Model
     {
         return $this->hasOne('App\Models\Institution', 'id', 'institution_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -83,7 +83,7 @@ class Resource extends Model
     {
         return $this->hasOne('App\Models\Province', 'id', 'province_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -91,7 +91,7 @@ class Resource extends Model
     {
         return $this->hasMany('App\Models\Report', 'resource_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -99,7 +99,7 @@ class Resource extends Model
     {
         return $this->hasOne('App\Models\Resourcetype', 'id', 'resourcetype_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -113,11 +113,16 @@ class Resource extends Model
         return $this->assignations()->where('is_active', true)->count() > 0;
     }
 
+    public function getLastReportAttribute()
+    {
+        return $this->reports()->orderByDesc('created_at')->first() ?? false;
+    }
+
     public function getReporttypeIdAttribute()
     {
         return $this->reports()->orderByDesc('created_at')->first()->reporttype->id ?? false;
     }
-    
+
     public function getIsOperativeAttribute()
     {
         return $this->reports()->orderByDesc('created_at')->first()->reporttype->is_operative ?? false;
@@ -125,7 +130,7 @@ class Resource extends Model
 
     public function getIconAttribute()
     {
-        return $this->getIsOperativeAttribute() ? "🟩":"🟥";
+        return $this->getIsOperativeAttribute() ? "🟩" : "🟥";
     }
 
     public function getWasReportedAttribute($when)
@@ -140,7 +145,6 @@ class Resource extends Model
 
     public function getWasOperativeIconAttribute($when)
     {
-        return $this->getWasOperativeAttribute($when) ? "🟩":"🟥";
+        return $this->getWasOperativeAttribute($when) ? "🟩" : "🟥";
     }
-    
 }
