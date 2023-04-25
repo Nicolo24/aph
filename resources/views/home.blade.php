@@ -28,15 +28,15 @@
             @foreach ($bases as $base)
                 <div class="card mb-2">
                     <div class="card-header">
-                        <ul class="nav nav-pills card-header-pills m-2">
-                            <li class="nav-item">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item me-auto">
                                 {{ $base->icon }} <a target="_blank" class="fw-bold" href="{{ route('bases.show', $base->id) }}">{{ $base->name }}</a>
                             </li>
                             <li class="nav-item ms-auto">
                                 <form action="{{ route('assign') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="base_id" value="{{ $base->id }}">
-                                    <select name="resource_id" id="resource_id" onchange="form.submit()">
+                                    <select class="form-select form-select-sm" name="resource_id" id="resource_id" onchange="form.submit()">
                                         <option value="0">Select Resource</option>
                                         @foreach ($base->available_resources as $resource)
                                             <option value="{{ $resource->id }}">{{ $resource->icon }} {{ $resource->name }}</option>
