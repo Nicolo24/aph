@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/fd2744f621.js" crossorigin="anonymous"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) { 
+        document.addEventListener("DOMContentLoaded", function(event) {
             var scrollpos = localStorage.getItem('scrollpos');
             if (scrollpos) window.scrollTo(0, scrollpos);
         });
@@ -29,6 +29,7 @@
             localStorage.setItem('scrollpos', window.scrollY);
         };
     </script>
+
 
 
 </head>
@@ -43,7 +44,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -83,7 +84,7 @@
                             </div>
                         </li>
 
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('classifications.index') }}">{{ __('Clasificaciones') }}</a>
                         </li>
@@ -127,8 +128,8 @@
             </div>
         </nav>
 
-        
-        <main class="py-4 container container-fluid">
+
+        <main class="py-2 container container-fluid">
             @yield('content')
         </main>
     </div>

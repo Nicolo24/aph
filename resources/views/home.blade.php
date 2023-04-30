@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex align-items-center p-3 my-3 text-white bg-secondary rounded shadow-sm">
+    <div class="d-flex align-items-center p-2 text-white bg-secondary rounded shadow-sm">
         <i class="fa-solid fa-truck-medical" style="font-size: 2.5em;"></i>
         <div class="lh-1 px-3">
             <h1 class="h6 mb-0 text-white lh-1">{{ Auth::user()->usertype->name }}</h1>
@@ -11,8 +11,8 @@
 
 
 
-    <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <div class="card col-md align-self-stretch">
+    <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-1 mt-1">
+        <div class="card col-md align-self-stretch vh-100">
             <div class="card-header">
                 Map with markers
             </div>
@@ -66,12 +66,23 @@
             </div>
         </div>
 
-        <div class="card shadow-sm col-md-auto">
+        <div class="card shadow-sm col-md-auto vh-100">
             <div class="card-header">
                 Bases
             </div>
 
-            <div class="card-body">
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) { 
+                    var scrollpos = localStorage.getItem('bases-scrollpos');
+                    if (scrollpos) document.getElementById('bases-list').scrollTop = scrollpos;
+                });
+            
+                window.onbeforeunload = function(e) {
+                    localStorage.setItem('bases-scrollpos', document.getElementById('bases-list').scrollTop);
+                };
+            </script>
+
+            <div class="card-body  overflow-auto" id="bases-list">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
