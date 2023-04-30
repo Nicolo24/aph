@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -41,6 +42,8 @@ class Resource extends Model
         'name' => 'required',
         'is_active' => 'required',
     ];
+
+    protected $appends = ['last_report','last_assignation'];
 
     protected $perPage = 20;
 
@@ -116,6 +119,11 @@ class Resource extends Model
     public function getLastReportAttribute()
     {
         return $this->reports()->orderByDesc('created_at')->first() ?? false;
+    }
+
+    public function getLastAssignationAttribute()
+    {
+        return $this->assignations()->where('is_active', true)->with(['base','user'])->orderByDesc('created_at')->first() ?? false;
     }
 
     public function getReporttypeIdAttribute()

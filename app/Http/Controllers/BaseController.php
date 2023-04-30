@@ -84,11 +84,13 @@ class BaseController extends Controller
      * @param  Base $base
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Base $base)
+    public function update(Request $request, Base $basis)
     {
-        request()->validate(Base::$rules);
 
-        $base->update($request->all());
+        request()->validate(Base::$rules);
+ 
+
+        $basis->update($request->all());
 
         return redirect()->route('bases.index')
             ->with('success', 'Base updated successfully');

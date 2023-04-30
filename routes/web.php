@@ -40,3 +40,5 @@ Route::resource('reports', App\Http\Controllers\ReportController::class);
 Route::resource('assignations', App\Http\Controllers\AssignationController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('classifications', App\Http\Controllers\ClassificationController::class);
+
+Route::post('/items', [App\Http\Controllers\ItemsController::class, 'index'])->name('items.index');

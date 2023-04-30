@@ -34,6 +34,11 @@ class Reporttype extends Model
      */
     protected $fillable = ['name','description','is_operative'];
 
+    public function getIconAttribute()
+    {
+        return $this->is_operative ? 'fa fa-check' : 'fa fa-times';
+    }
+
 
 
 }

@@ -103,7 +103,7 @@ class ReportController extends Controller
     {
         $report = Report::find($id)->delete();
 
-        return redirect()->route('reports.index')
+        return redirect()->back()
             ->with('success', 'Report deleted successfully');
     }
 }
