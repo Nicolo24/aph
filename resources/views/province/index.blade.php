@@ -48,11 +48,11 @@
 
                                             <td>
                                                 <form action="{{ route('provinces.destroy',$province->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('provinces.show',$province->id) }}"> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('provinces.edit',$province->id) }}"> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('provinces.show',$province->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('provinces.edit',$province->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

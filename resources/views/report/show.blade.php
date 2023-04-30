@@ -12,7 +12,7 @@
                             <span class="card-title">Show Report</span>
                         </div>
                         <div class="float-end">
-                            <a class="btn btn-primary" href="{{ route('reports.index') }}"> Back</a>
+                            {{-- <a class="btn btn-primary" href="{{ route('reports.index') }}"> Back</a> --}}
                         </div>
                     </div>
 

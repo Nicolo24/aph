@@ -62,8 +62,8 @@
 
                                     <td>
                                         <form action="{{ route($resource->is_active ? 'resources.destroy' : 'resources.restore', $resource->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('resources.show', $resource->id) }}"> Show</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('resources.edit', $resource->id) }}"> Edit</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('resources.show', $resource->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('resources.edit', $resource->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                             @csrf
                                             @method($resource->is_active ? 'DELETE' : 'POST')
                                             <button type="submit" class="btn btn-danger btn-sm"> {{ $resource->is_active ? 'Delete' : 'Restore' }}</button>

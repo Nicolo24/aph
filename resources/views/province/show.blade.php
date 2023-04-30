@@ -12,7 +12,7 @@
                             <span class="card-title">Show Province</span>
                         </div>
                         <div class="float-end">
-                            <a class="btn btn-primary" href="{{ route('provinces.index') }}"> Back</a>
+                            {{-- <a class="btn btn-primary" href="{{ route('provinces.index') }}"> Back</a> --}}
                         </div>
                     </div>
 

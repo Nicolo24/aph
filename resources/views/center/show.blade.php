@@ -12,7 +12,7 @@
                     <span class="card-title">Show Center</span>
                 </div>
                 <div class="float-end">
-                    <a class="btn btn-primary" href="{{ route('centers.index') }}"> Back</a>
+                    {{-- <a class="btn btn-primary" href="{{ route('centers.index') }}"> Back</a> --}}
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
                                                 <a class="btn btn-sm btn-success" href="{{ route('bases.edit', $base->id) }}">Edit</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>
@@ -113,11 +113,11 @@
 
                                         <td>
                                             <form action="{{ route('resources.destroy',$resource->id) }}" method="POST">
-                                                <a class="btn btn-sm btn-primary " href="{{ route('resources.show',$resource->id) }}"> Show</a>
-                                                <a class="btn btn-sm btn-success" href="{{ route('resources.edit',$resource->id) }}"> Edit</a>
+                                                <a class="btn btn-sm btn-primary " href="{{ route('resources.show',$resource->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('resources.edit',$resource->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>

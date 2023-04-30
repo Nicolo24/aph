@@ -12,7 +12,7 @@
                             <span class="card-title">Show Assignation</span>
                         </div>
                         <div class="float-end">
-                            <a class="btn btn-primary" href="{{ route('assignations.index') }}"> Back</a>
+                            {{-- <a class="btn btn-primary" href="{{ route('assignations.index') }}"> Back</a> --}}
                         </div>
                     </div>
 

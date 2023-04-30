@@ -66,11 +66,11 @@
 
                                     <td>
                                         <form action="{{ $base->is_active ? route('bases.destroy', $base->id) : route('bases.restore', $base->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('bases.show', $base->id) }}"> Show</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('bases.edit', $base->id) }}"> Edit</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('bases.show', $base->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('bases.edit', $base->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                             @csrf
                                             @method($base->is_active ? 'DELETE' : 'POST')
-                                            <button type="submit" class="btn btn-danger btn-sm">{{ $base->is_active ? 'Delete' : 'Restore' }}</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-solid {{ $base->is_active ? 'fa-trash-can' : 'fa-trash-can-arrow-up' }}"></i></button>
                                         </form>
                                     </td>
                                 </tr>

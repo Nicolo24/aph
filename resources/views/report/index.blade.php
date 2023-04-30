@@ -54,11 +54,11 @@
 
                                     <td>
                                         <form action="{{ route('reports.destroy', $report->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('reports.show', $report->id) }}"> Show</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('reports.edit', $report->id) }}"> Edit</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('reports.show', $report->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('reports.edit', $report->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

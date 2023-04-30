@@ -52,11 +52,11 @@
 
                                             <td>
                                                 <form action="{{ route('resourcetypes.destroy', $resourcetype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('resourcetypes.show', $resourcetype->id) }}"> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('resourcetypes.edit', $resourcetype->id) }}"> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('resourcetypes.show', $resourcetype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('resourcetypes.edit', $resourcetype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -112,11 +112,11 @@
 
                                             <td>
                                                 <form action="{{ route('usertypes.destroy', $usertype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('usertypes.show', $usertype->id) }}"> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('usertypes.edit', $usertype->id) }}"> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('usertypes.show', $usertype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('usertypes.edit', $usertype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -173,11 +173,11 @@
 
                                             <td>
                                                 <form action="{{ route('basetypes.destroy', $basetype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('basetypes.show', $basetype->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('basetypes.edit', $basetype->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('basetypes.show', $basetype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('basetypes.edit', $basetype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -232,11 +232,11 @@
 
                                             <td>
                                                 <form action="{{ route('reporttypes.destroy', $reporttype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('reporttypes.show', $reporttype->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('reporttypes.edit', $reporttype->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('reporttypes.show', $reporttype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('reporttypes.edit', $reporttype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> </button>
                                                 </form>
                                             </td>
                                         </tr>
