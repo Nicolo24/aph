@@ -56,6 +56,8 @@ class Base extends Model
      */
     protected $fillable = ['center_id','province_id','zone_id','institution_id','basetype_id','name','latitude','longitude','comment','is_active'];
 
+    protected $appends = ['is_operative'];
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

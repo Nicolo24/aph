@@ -43,8 +43,6 @@ class Resource extends Model
         'is_active' => 'required',
     ];
 
-    protected $appends = ['last_report','last_assignation'];
-
     protected $perPage = 20;
 
     /**

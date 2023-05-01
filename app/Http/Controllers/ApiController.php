@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Base;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -33,20 +34,6 @@ class ApiController extends Controller
             'access_token' => $token,
             'token_type'   => 'bearer'
         ]);
-    }
-
-    // function reports
-    public function reports()
-    {
-        $reports = \App\Models\Report::with(['user','resource','reporttype'])->get();
-        return response()->json($reports);
-    }
-
-    // function resources
-    public function resources()
-    {
-        $resources = \App\Models\Resource::with(['resourcetype','center','province','zone','institution'])->get();
-        return response()->json($resources);
     }
 
 

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-     static $rules = [
+    static $rules = [
         'name',
         'email',
         'center_id',
@@ -27,7 +27,7 @@ class User extends Authenticatable
         'institution_id',
         'usertype_id',
     ];
-    
+
     protected $perPage = 20;
 
     protected $fillable = [
@@ -84,5 +84,30 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Usertype::class);
     }
-    
+
+    function getBasesAttribute()
+    {
+        if ($this->usertype->name == "Analista de despacho") {
+            return \App\Models\Base::where([
+                ["institution_id", "=", $this->institution_id],
+                ["zone_id", "=", $this->zone_id],
+                ["province_id", "=", $this->province_id],
+                ["center_id", "=", $this->center_id],
+                ["is_active", "=", true]
+            ])->get();
+        }
+    }
+
+    function getResourcesAttribute()
+    {
+        if ($this->usertype->name == "Analista de despacho") {
+            return \App\Models\Resource::where([
+                ["institution_id", "=", $this->institution_id],
+                ["zone_id", "=", $this->zone_id],
+                ["province_id", "=", $this->province_id],
+                ["center_id", "=", $this->center_id],
+                ["is_active", "=", true]
+            ])->get();
+        }
+    }
 }

@@ -25,14 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-
-        if ($user->usertype->name == "Analista de despacho") {
-            $bases = \App\Models\Base::where("institution_id", $user->institution_id)->where("zone_id", $user->zone_id)->where("province_id", $user->province_id)->where("center_id", $user->center_id)->where("is_active",true)->get();
-            return view('home')->with("bases", $bases);
-        } else {
-            return view('home');
-        }
+        return view('home');
     }
 
     public function assign(Request $request){
