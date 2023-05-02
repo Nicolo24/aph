@@ -153,7 +153,7 @@
                                             <td class="dropdown align-middle">
                                                 <div class="dropdown">
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre
-                                                        title="{{ $assignation->resource->last_report->created_at->subHours(5) ?? '' }} - {{ $assignation->resource->last_report->comment ?? '' }}">
+                                                        title="{{ $assignation->resource->last_report ? $assignation->resource->last_report->created_at->subHours(5) : '' }} - {{ $assignation->resource->last_report->comment ?? '' }}">
                                                         {{ $assignation->resource->icon }}
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -274,7 +274,7 @@
                                     <td class="dropdown align-middle">
                                                 <div class="dropdown">
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre
-                                                        title="{{ $assignation->resource->last_report->created_at->subHours(5) ?? '' }} - {{ $assignation->resource->last_report->comment ?? '' }}">
+                                                        title="{{ $assignation->resource->last_report ? $assignation->resource->last_report->created_at->subHours(5) : '' }} - {{ $assignation->resource->last_report->comment ?? '' }}">
                                                         {{ $assignation->resource->icon }}
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
