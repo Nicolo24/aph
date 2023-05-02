@@ -18,10 +18,10 @@
                 <div class="float-start">
                     Mapa
                 </div>
-                <div class="float-end">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="autorefresh-checkbox">
-                        <label class="form-check-label" for="autorefresh-checkbox">Autorefresh (5 sec)</label>
+                <div class="float-end d-flex justify-content-between">
+                    <div class="form-check ">
+                        <input class="form-check-input align-middle" type="checkbox" id="autorefresh-checkbox">
+                        <label class="form-check-label align-middle" for="autorefresh-checkbox">Autorefresh (5 sec)</label>
                     </div>
 
                     <script>
@@ -80,7 +80,7 @@
                             }
                         });
                     </script>
-                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.reload()">Refrescar</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary ms-4" onclick="location.reload()">Refrescar</button>
 
                 </div>
             </div>
@@ -307,7 +307,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                <a href="{{ route('resources.show', $assignation->resource->id) }}" class="flex-grow-1 me-3">{{ $assignation->resource->name }}</a>
+                                <a href="{{ route('resources.show', $assignation->resource->id) }}" class="flex-grow-1 me-3" target="_blank">{{ $assignation->resource->name }}</a>
                                 <form action="{{ route('unassign') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="assignation_id" value="{{ $assignation->id }}">

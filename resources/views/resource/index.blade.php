@@ -22,8 +22,11 @@
                 </div>
             </div>
             @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <div>
+                        {{ $message }}
+                    </div>
                 </div>
             @endif
 
@@ -66,7 +69,7 @@
                                             <a class="btn btn-sm btn-success" href="{{ route('resources.edit', $resource->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                             @csrf
                                             @method($resource->is_active ? 'DELETE' : 'POST')
-                                            <button type="submit" class="btn btn-danger btn-sm"> {{ $resource->is_active ? 'Delete' : 'Restore' }}</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-solid {{ $resource->is_active ? 'fa-trash-can' : 'fa-trash-can-arrow-up' }}"></i></button>
                                         </form>
                                     </td>
                                 </tr>

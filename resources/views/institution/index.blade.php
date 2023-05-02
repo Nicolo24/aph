@@ -22,10 +22,13 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <div>
+                        {{ $message }}
+                    </div>
+                </div>
+            @endif
 
                     <div class="card-body">
                         <div class="table-responsive">

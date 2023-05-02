@@ -103,7 +103,7 @@ class AssignationController extends Controller
     {
         $assignation = Assignation::find($id)->delete();
 
-        return redirect()->route('assignations.index')
+        return redirect()->back()
             ->with('success', 'Assignation deleted successfully');
     }
 }
