@@ -128,7 +128,7 @@
                                             <option value="0">Select Resource</option>
                                             @foreach ($base->available_resources as $resource)
                                                 <option value="{{ $resource->id }}">
-                                                    {{ $resource->name }} ({{ $resource->last_report?$resource->last_report->reporttype->name:'Sin reportes' }})
+                                                    {{ $resource->name }} ({{ $resource->last_report ? $resource->last_report->reporttype->name : 'Sin reportes' }})
                                                 </option>
                                             @endforeach
                                         </select>
@@ -168,12 +168,12 @@
                                                                     <div class="row">
                                                                         <div class="col">
                                                                             @foreach (\App\Models\Reporttype::all() as $reporttype)
-                                                                            <div class="form-group text-wrap">
-                                                                                <div class="form-check form-check-inline">
-                                                                                    {{ Form::radio('reporttype_id', $reporttype->id, $assignation->resource->reporttype_id == $reporttype->id, ['class' => 'form-check-input', 'id' => 'reporttype_id']) }}
-                                                                                    {{ Form::label('reporttype_id', $reporttype->name, ['class' => 'form-check-label']) }}
+                                                                                <div class="form-group text-wrap">
+                                                                                    <div class="form-check form-check-inline">
+                                                                                        {{ Form::radio('reporttype_id', $reporttype->id, $assignation->resource->reporttype_id == $reporttype->id, ['class' => 'form-check-input', 'id' => 'reporttype_id']) }}
+                                                                                        {{ Form::label('reporttype_id', $reporttype->name, ['class' => 'form-check-label']) }}
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
                                                                             @endforeach
                                                                         </div>
                                                                         <div class="col text-end">
@@ -268,7 +268,7 @@
                                     <select class="form-select form-select-sm select-hide-selected" name="resource_id" id="resource_id" onchange="form.submit()">
                                     <option value="0">Add</option>
                                     @foreach ($base->available_resources as $resource)
-                                    <option value="{{ $resource->id }}">{{ $resource->name }} ({{ $resource->last_report?$resource->last_report->reporttype->name:'Sin reportes' }})</option>
+                                    <option value="{{ $resource->id }}">{{ $resource->name }} ({{ $resource->last_report ? $resource->last_report->reporttype->name : 'Sin reportes' }})</option>
                                     @endforeach
                                     </select>
                                 </form>
@@ -291,10 +291,12 @@
                                                                     <div class="row">
                                                                         <div class="col">
                                                                             @foreach (\App\Models\Reporttype::all() as $reporttype)
-                                                                                <div class="form-group text-wrap">
-                                                                                    {{ Form::radio('reporttype_id', $reporttype->id, $assignation->resource->reporttype_id == $reporttype->id, ['id' => 'reporttype_id']) }}
-                                                                                    {{ Form::label('reporttype_id', $reporttype->name) }}
+                                                                            <div class="form-group text-wrap">
+                                                                                <div class="form-check form-check-inline">
+                                                                                    {{ Form::radio('reporttype_id', $reporttype->id, $assignation->resource->reporttype_id == $reporttype->id, ['class' => 'form-check-input', 'id' => 'reporttype_id']) }}
+                                                                                    {{ Form::label('reporttype_id', $reporttype->name, ['class' => 'form-check-label']) }}
                                                                                 </div>
+                                                                            </div>
                                                                             @endforeach
                                                                         </div>
                                                                         <div class="col text-end">
@@ -303,7 +305,7 @@
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="form-group mt-2">
-                                                                            {{ Form::textarea('comment', '', ['class' => 'form-control', 'style' => 'width: 200px; height: 100px;', 'placeholder' => 'Escribe tu comentario aquí']) }}
+                                                                            {{ Form::textarea('comment', '', ['class' => 'form-control', 'style' => 'width: 250px; height: 100px;', 'placeholder' => 'Escribe tu comentario aquí']) }}
                                                                         </div>
                                                                     </div>
                                                                 </form>
