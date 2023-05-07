@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('is_operative') }}
-            {{ Form::select('is_operative', [0,1], $reporttype->is_operative, ['class' => 'form-control' . ($errors->has('is_operative') ? ' is-invalid' : ''), 'placeholder' => 'Is Operative']) }}
+            {{ Form::select('is_operative', [0=>'NO',1=>'YES'], $reporttype->is_operative, ['class' => 'form-control' . ($errors->has('is_operative') ? ' is-invalid' : ''), 'placeholder' => 'Is Operative']) }}
             {!! $errors->first('is_operative', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
