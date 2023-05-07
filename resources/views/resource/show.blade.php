@@ -22,7 +22,7 @@
                     </tr>
                     @foreach ($resource->reports->sortByDesc('created_at') as $report)
                         <tr>
-                            <td><i class="{{ $report->reporttype->icon }}"></i></td>
+                            <td>{!! $report->reporttype->icon !!}</i></td>
                             <td>{{ $report->reporttype->name }}</td>
                             <td>{{ $report->created_at->subHours(5) }}</td>
                             <td>{{ $report->user->name }}</td>

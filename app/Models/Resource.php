@@ -136,7 +136,7 @@ class Resource extends Model
 
     public function getIconAttribute()
     {
-        return $this->getIsOperativeAttribute() ? "🟩" : "🟥";
+        return $this->getLastReportAttribute() ? $this->getLastReportAttribute()->reporttype->icon : "<i class='fas fa-question'></i>";
     }
 
     public function getWasReportedAttribute($when)

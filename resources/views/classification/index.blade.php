@@ -219,6 +219,7 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Is Operative</th>
+                                        <th>Icon</th>
 
                                         <th></th>
                                     </tr>
@@ -229,6 +230,7 @@
                                             <td>{{ $reporttype->name }}</td>
                                             <td>{{ $reporttype->description }}</td>
                                             <td>{{ $reporttype->is_operative ? 'YES' : 'NO' }}</td>
+                                            <td>{!! $reporttype->icon !!}</td>
 
                                             <td>
                                                 <form action="{{ route('reporttypes.destroy', $reporttype->id) }}" method="POST">

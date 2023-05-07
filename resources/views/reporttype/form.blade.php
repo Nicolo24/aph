@@ -16,6 +16,11 @@
             {{ Form::select('is_operative', [0,1], $reporttype->is_operative, ['class' => 'form-control' . ($errors->has('is_operative') ? ' is-invalid' : ''), 'placeholder' => 'Is Operative']) }}
             {!! $errors->first('is_operative', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('icon')}}
+            {{ Form::text('icon', $reporttype->icon, ['class' => 'form-control' . ($errors->has('icon') ? ' is-invalid' : ''), 'placeholder' => 'Icon']) }}
+            {!! $errors->first('icon', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
     </div>
     <div class="box-footer mt-2">

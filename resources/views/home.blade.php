@@ -118,7 +118,7 @@
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
                                 <li class="nav-item me-auto">
-                                    {{ $base->icon }} <a target="_blank" class="fw-bold" href="{{ route('bases.show', $base->id) }}">{{ $base->name }}</a>
+                                    {!! $base->icon !!} <a target="_blank" class="fw-bold" href="{{ route('bases.show', $base->id) }}">{{ $base->name }}</a>
                                 </li>
                                 <li class="nav-item ms-auto">
                                     <form action="{{ route('assign') }}" method="post">
@@ -127,9 +127,12 @@
                                         <select class="form-select form-select-sm" name="resource_id" id="resource_id" onchange="form.submit()">
                                             <option value="0">Select Resource</option>
                                             @foreach ($base->available_resources as $resource)
-                                                <option value="{{ $resource->id }}">{{ $resource->icon }} {{ $resource->name }}</option>
+                                                <option value="{{ $resource->id }}">
+                                                    {{ $resource->name }} ({{ $resource->last_report?$resource->last_report->reporttype->name:'Sin reportes' }})
+                                                </option>
                                             @endforeach
                                         </select>
+
                                     </form>
                                 </li>
                             </ul>
@@ -154,7 +157,7 @@
                                                 <div class="dropdown">
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre
                                                         title="{{ $assignation->resource->last_report ? $assignation->resource->last_report->created_at->subHours(5) : '' }} - {{ $assignation->resource->last_report->comment ?? '' }}">
-                                                        {{ $assignation->resource->icon }}
+                                                        {!! $assignation->resource->icon !!}
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         <div class="card">
@@ -165,10 +168,12 @@
                                                                     <div class="row">
                                                                         <div class="col">
                                                                             @foreach (\App\Models\Reporttype::all() as $reporttype)
-                                                                                <div class="form-group text-wrap">
-                                                                                    {{ Form::radio('reporttype_id', $reporttype->id, $assignation->resource->reporttype_id == $reporttype->id, ['id' => 'reporttype_id']) }}
-                                                                                    {{ Form::label('reporttype_id', $reporttype->name) }}
+                                                                            <div class="form-group text-wrap">
+                                                                                <div class="form-check form-check-inline">
+                                                                                    {{ Form::radio('reporttype_id', $reporttype->id, $assignation->resource->reporttype_id == $reporttype->id, ['class' => 'form-check-input', 'id' => 'reporttype_id']) }}
+                                                                                    {{ Form::label('reporttype_id', $reporttype->name, ['class' => 'form-check-label']) }}
                                                                                 </div>
+                                                                            </div>
                                                                             @endforeach
                                                                         </div>
                                                                         <div class="col text-end">
@@ -177,7 +182,7 @@
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="form-group mt-2">
-                                                                            {{ Form::textarea('comment', '', ['class' => 'form-control', 'style' => 'width: 200px; height: 100px;', 'placeholder' => 'Escribe tu comentario aquí']) }}
+                                                                            {{ Form::textarea('comment', '', ['class' => 'form-control', 'style' => 'width: 250px; height: 100px;', 'placeholder' => 'Escribe tu comentario aquí']) }}
                                                                         </div>
                                                                     </div>
                                                                 </form>
@@ -253,7 +258,7 @@
                 var popupContent = `
                     <div class="card">
                         <div class="card-header">
-                            {{ $base->icon }} <a target="_blank" class="fw-bold" href="{{ route('bases.show', $base->id) }}">{{ $base->name }}</a>
+                            {!! $base->icon !!} <a target="_blank" class="fw-bold" href="{{ route('bases.show', $base->id) }}">{{ $base->name }}</a>
                         </div>
                         <div class="card-body">
                             <div class="d-flex justify-content-end mb-3">
@@ -263,7 +268,7 @@
                                     <select class="form-select form-select-sm select-hide-selected" name="resource_id" id="resource_id" onchange="form.submit()">
                                     <option value="0">Add</option>
                                     @foreach ($base->available_resources as $resource)
-                                    <option value="{{ $resource->id }}">{{ $resource->icon }} {{ $resource->name }}</option>
+                                    <option value="{{ $resource->id }}">{{ $resource->name }} ({{ $resource->last_report?$resource->last_report->reporttype->name:'Sin reportes' }})</option>
                                     @endforeach
                                     </select>
                                 </form>
@@ -275,7 +280,7 @@
                                                 <div class="dropdown">
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre
                                                         title="{{ $assignation->resource->last_report ? $assignation->resource->last_report->created_at->subHours(5) : '' }} - {{ $assignation->resource->last_report->comment ?? '' }}">
-                                                        {{ $assignation->resource->icon }}
+                                                        {!! $assignation->resource->icon !!}
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         <div class="card">
