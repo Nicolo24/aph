@@ -8,7 +8,7 @@
                 <select id="center_id" class="form-control @error('center_id') is-invalid @enderror" name="center_id"
                     required>
                     @foreach (\App\Models\Center::all() as $center)
-                        <option value="{{ $center->id }}" {{$resource->center_id == $center->id ? 'selected' : ''}}>{{ $center->name }}</option>
+                        <option value="{{ $center->id }}" {{ ($resource->center_id ?? Auth::user()->center_id) ? 'selected' : ''}}>{{ $center->name }}</option>
                     @endforeach
                 </select>
 
@@ -27,7 +27,7 @@
                 <select id="province_id" class="form-control @error('province_id') is-invalid @enderror"
                     name="province_id" required>
                     @foreach (\App\Models\Province::all() as $province)
-                        <option value="{{ $province->id }}" {{$resource->province_id == $province->id ? 'selected' : ''}} >{{ $province->name }}</option>
+                        <option value="{{ $province->id }}" {{($resource->province_id ?? Auth::user()->province_id) == $province->id ? 'selected' : ''}} >{{ $province->name }}</option>
                     @endforeach
                 </select>
 
@@ -46,7 +46,7 @@
                 <select id="zone_id" class="form-control @error('province_id') is-invalid @enderror" name="zone_id"
                     required>
                     @foreach (\App\Models\Zone::all() as $zone)
-                        <option value="{{ $zone->id }}" {{ $resource->zone_id == $zone->id ? 'selected' : '' }}>{{ $zone->name }}</option>
+                        <option value="{{ $zone->id }}" {{ ($resource->zone_id ?? Auth::user()->zone_id) == $zone->id ? 'selected' : '' }}>{{ $zone->name }}</option>
                     @endforeach
                 </select>
 
@@ -65,7 +65,7 @@
                 <select id="institution_id" class="form-control @error('institution_id') is-invalid @enderror"
                     name="institution_id" required>
                     @foreach (\App\Models\Institution::all() as $institution)
-                        <option value="{{ $institution->id }}" {{$resource->institution_id == $institution->id ? 'selected' : ''}}>{{ $institution->name }}</option>
+                        <option value="{{ $institution->id }}" {{($resource->institution_id ?? Auth::user()->institution_id) == $institution->id ? 'selected' : ''}}>{{ $institution->name }}</option>
                     @endforeach
                 </select>
 
