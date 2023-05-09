@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/map', [App\Http\Controllers\MapController::class, 'index'])->name('map');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 Route::post('/assign', [App\Http\Controllers\HomeController::class, 'assign'])->name('assign');
 Route::post('/unassign', [App\Http\Controllers\HomeController::class, 'unassign'])->name('unassign');
 Route::post('/report', [App\Http\Controllers\HomeController::class, 'report'])->name('report');

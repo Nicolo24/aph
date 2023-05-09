@@ -6,18 +6,35 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-5 m-2">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="resourcetype-tab" data-bs-toggle="tab" data-bs-target="#resourcetype"
+                    type="button" role="tab" aria-controls="home" aria-selected="true">Resourcetype</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="basetype-tab" data-bs-toggle="tab" data-bs-target="#basetype" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false">Basetype</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="reporttype-tab" data-bs-toggle="tab" data-bs-target="#reporttype"
+                    type="button" role="tab" aria-controls="contact" aria-selected="false">Reporttype</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="usertype-tab" data-bs-toggle="tab" data-bs-target="#usertype" type="button"
+                    role="tab" aria-controls="contact" aria-selected="false">Usertype</button>
+            </li>
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="resourcetype" role="tabpanel" aria-labelledby="resourcetype-tab">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Resourcetype') }}
-                            </span>
 
                             <div class="float-end">
-                                <a href="{{ route('resourcetypes.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
+                                <a href="{{ route('resourcetypes.create') }}" class="btn btn-primary btn-sm float-end"
+                                    data-placement="left">
                                     {{ __('Create New') }}
                                 </a>
                             </div>
@@ -51,12 +68,18 @@
                                             <td>{{ $resourcetype->description }}</td>
 
                                             <td>
-                                                <form action="{{ route('resourcetypes.destroy', $resourcetype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('resourcetypes.show', $resourcetype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('resourcetypes.edit', $resourcetype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                <form action="{{ route('resourcetypes.destroy', $resourcetype->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('resourcetypes.show', $resourcetype->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('resourcetypes.edit', $resourcetype->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -67,17 +90,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-5 m-2">
+
+            <div class="tab-pane fade  " id="usertype" role="tabpanel" aria-labelledby="usertype-tab">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Usertype') }}
-                            </span>
 
                             <div class="float-end">
-                                <a href="{{ route('usertypes.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
+                                <a href="{{ route('usertypes.create') }}" class="btn btn-primary btn-sm float-end"
+                                    data-placement="left">
                                     {{ __('Create New') }}
                                 </a>
                             </div>
@@ -111,12 +133,18 @@
                                             <td>{{ $usertype->description }}</td>
 
                                             <td>
-                                                <form action="{{ route('usertypes.destroy', $usertype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('usertypes.show', $usertype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('usertypes.edit', $usertype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                <form action="{{ route('usertypes.destroy', $usertype->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('usertypes.show', $usertype->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('usertypes.edit', $usertype->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -128,17 +156,15 @@
                 </div>
             </div>
 
-            <div class="col-5 m-2">
+            <div class="tab-pane fade  " id="basetype" role="tabpanel" aria-labelledby="basetype-tab">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Basetype') }}
-                            </span>
 
                             <div class="float-end">
-                                <a href="{{ route('basetypes.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
+                                <a href="{{ route('basetypes.create') }}" class="btn btn-primary btn-sm float-end"
+                                    data-placement="left">
                                     {{ __('Create New') }}
                                 </a>
                             </div>
@@ -172,12 +198,18 @@
                                             <td>{{ $basetype->description }}</td>
 
                                             <td>
-                                                <form action="{{ route('basetypes.destroy', $basetype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('basetypes.show', $basetype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('basetypes.edit', $basetype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                <form action="{{ route('basetypes.destroy', $basetype->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('basetypes.show', $basetype->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('basetypes.edit', $basetype->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i> </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -189,17 +221,15 @@
                 </div>
             </div>
 
-            <div class="col-5 m-2">
+            <div class="tab-pane fade  " id="reporttype" role="tabpanel" aria-labelledby="reporttype-tab">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Reporttype') }}
-                            </span>
 
                             <div class="float-end">
-                                <a href="{{ route('reporttypes.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
+                                <a href="{{ route('reporttypes.create') }}" class="btn btn-primary btn-sm float-end"
+                                    data-placement="left">
                                     {{ __('Create New') }}
                                 </a>
                             </div>
@@ -233,12 +263,18 @@
                                             <td>{!! $reporttype->icon !!}</td>
 
                                             <td>
-                                                <form action="{{ route('reporttypes.destroy', $reporttype->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('reporttypes.show', $reporttype->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('reporttypes.edit', $reporttype->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                <form action="{{ route('reporttypes.destroy', $reporttype->id) }}"
+                                                    method="POST">
+                                                    <a class="btn btn-sm btn-primary "
+                                                        href="{{ route('reporttypes.show', $reporttype->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="{{ route('reporttypes.edit', $reporttype->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i> </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -249,6 +285,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 @endsection

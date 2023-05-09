@@ -50,10 +50,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{ route('map') }}">{{ __('Mapa') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('historic') }}">{{ __('Historic') }}</a>
+                            <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Panel de control') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('historic') }}">{{ __('Historico') }}</a>
                         </li>
 
                         <li class="nav-item dropdown">

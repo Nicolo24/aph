@@ -52,7 +52,7 @@
                     @if (Route::has('login'))
                         @auth
 
-                            <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{ url('/dashboard') }}">Panel de control</a>
                         @else
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
                             @if (Route::has('register'))
@@ -73,7 +73,7 @@
                     <div class="col-md-12 text-center">
                         <h1>Sistema de Gestión de Atención Prehospitalaria</h1>
                         @auth
-                            <a class="btn btn-primary btn-dark " aria-current="page" href="{{ url('/home') }}">Ir al sistema</a>
+                            <a class="btn btn-primary btn-dark " aria-current="page" href="{{ url('/map') }}">Ir al sistema</a>
                         @endauth
                     </div>
                 </div>
