@@ -47,7 +47,7 @@ class ResourceController extends Controller
 
         $resource = Resource::create($request->all());
 
-        return redirect()->back()
+        return redirect()->route('resources.index')
             ->with('success', 'Resource created successfully.');
     }
 
@@ -90,7 +90,7 @@ class ResourceController extends Controller
 
         $resource->update($request->all());
 
-        return redirect()->back()
+        return redirect()->route('resources.index')
             ->with('success', 'Resource updated successfully');
     }
 
@@ -105,7 +105,7 @@ class ResourceController extends Controller
         $resource->is_active = 0;
         $resource->save();
 
-        return redirect()->back()
+        return redirect()->route('resources.index')
             ->with('success', 'Resource deleted successfully');
     }
 
@@ -115,7 +115,7 @@ class ResourceController extends Controller
         $resource->is_active = 1;
         $resource->save();
 
-        return redirect()->back()
+        return redirect()->route('resources.index')
             ->with('success', 'Resource restored successfully');
     }
 }
