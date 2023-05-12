@@ -13,7 +13,7 @@
             <div class="card-body">
                 <table class="table table-responsive">
                     <tr>
-                        <th></th>   
+                        <th></th>
                         <th>Report</th>
                         <th>Since</th>
                         <th>By</th>
@@ -53,23 +53,23 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <strong>Center Id:</strong>
+                    <strong>Center:</strong>
                     {{ $resource->center->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Province Id:</strong>
+                    <strong>Province:</strong>
                     {{ $resource->province->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Zone Id:</strong>
+                    <strong>Zone:</strong>
                     {{ $resource->zone->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Institution Id:</strong>
+                    <strong>Institution:</strong>
                     {{ $resource->institution->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Resourcetype Id:</strong>
+                    <strong>Resource Type:</strong>
                     {{ $resource->resourcetype->name }}
                 </div>
                 <div class="form-group">
@@ -87,7 +87,7 @@
 
             </div>
         </div>
-        </div>
-        </div>
+
+
     </section>
 @endsection

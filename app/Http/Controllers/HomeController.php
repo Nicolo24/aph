@@ -35,7 +35,7 @@ class HomeController extends Controller
         $assignation->base_id = $request->base_id;
         $assignation->resource_id = $request->resource_id;
         $assignation->save();
-        return redirect()->route('home');
+        return redirect()->back();
 
     }
 
@@ -44,7 +44,7 @@ class HomeController extends Controller
         $assignation = \App\Models\Assignation::where('id',$request->assignation_id)->first();
         $assignation->is_active = false;
         $assignation->save();
-        return redirect()->route('home');
+        return redirect()->back();
     }
 
     public function report(Request $request){
@@ -55,7 +55,7 @@ class HomeController extends Controller
         $report->reporttype_id = $request->reporttype_id;
         $report->comment = $request->comment;
         $report->save();
-        return redirect()->route('home');
+        return redirect()->back();
     }
 
     
