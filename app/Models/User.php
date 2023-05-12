@@ -93,7 +93,6 @@ class User extends Authenticatable
                 ["zone_id", "=", $this->zone_id],
                 ["province_id", "=", $this->province_id],
                 ["center_id", "=", $this->center_id],
-                ["is_active", "=", true]
             ])->get();
         }
     }
@@ -106,7 +105,6 @@ class User extends Authenticatable
                 ["zone_id", "=", $this->zone_id],
                 ["province_id", "=", $this->province_id],
                 ["center_id", "=", $this->center_id],
-                ["is_active", "=", true]
             ])->get();
         }
     }
