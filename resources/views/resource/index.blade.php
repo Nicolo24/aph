@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($resources->sortByDesc('is_active') as $resource)
+                            @foreach (Auth::user()->resources->sortByDesc('is_active') as $resource)
                                 <tr class="{{ $resource->is_active ? '' : 'table-danger' }}">
                                     <td>{{ $resource->id }}</td>
 

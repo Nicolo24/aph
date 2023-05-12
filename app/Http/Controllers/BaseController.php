@@ -47,7 +47,7 @@ class BaseController extends Controller
 
         $base = Base::create($request->all());
 
-        return redirect()->route('bases.index')
+        return redirect()->back()
             ->with('success', 'Base created successfully.');
     }
 
@@ -92,7 +92,7 @@ class BaseController extends Controller
 
         $basis->update($request->all());
 
-        return redirect()->route('bases.index')
+        return redirect()->back()
             ->with('success', 'Base updated successfully');
     }
 

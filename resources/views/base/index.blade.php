@@ -52,7 +52,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bases->sortByDesc('is_active') as $base)
+                            @foreach (Auth::user()->bases->sortByDesc('is_active') as $base)
                                 <tr class="{{ $base->is_active ? '' : 'table-danger' }}">
                                     <td>{{ $base->id }}</td>
 
