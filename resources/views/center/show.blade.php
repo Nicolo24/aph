@@ -19,7 +19,7 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
                     {{ $center->name }}
                 </div>
 
@@ -32,16 +32,16 @@
                                 <tr>
                                     <th>ID</th>
 
-                                    <th>Center</th>
-                                    <th>Province</th>
-                                    <th>Zone</th>
-                                    <th>Institution</th>
+                                    <th>Centro</th>
+                                    <th>Provincia</th>
+                                    <th>Zona</th>
+                                    <th>Institución</th>
                                     <th>Basetype</th>
-                                    <th>Name</th>
+                                    <th>Nombre</th>
                                     <th>Latitude</th>
                                     <th>Longitude</th>
-                                    <th>Comment</th>
-                                    <th>Is Active</th>
+                                    <th>Comentario</th>
+                                    <th>Activo</th>
 
                                     <th></th>
                                 </tr>
@@ -60,7 +60,7 @@
                                         <td>{{ $base->latitude }}</td>
                                         <td>{{ $base->longitude }}</td>
                                         <td>{{ $base->comment }}</td>
-                                        <td>{{ $base->is_active ? 'YES' : 'NO' }}</td>
+                                        <td>{{ $base->is_active ? 'SI' : 'NO' }}</td>
 
                                         <td>
                                             <form action="{{ route('bases.destroy', $base->id) }}" method="POST">
@@ -85,14 +85,14 @@
                                 <tr>
                                     <th>ID</th>
 
-                                    <th>Center</th>
-                                    <th>Province</th>
-                                    <th>Zone</th>
-                                    <th>Institution</th>
-                                    <th>Resourcetype</th>
-                                    <th>Name</th>
-                                    <th>Comment</th>
-                                    <th>Is Active</th>
+                                    <th>Centro</th>
+                                    <th>Provincia</th>
+                                    <th>Zona</th>
+                                    <th>Institución</th>
+                                    <th>Tipo de recurso</th>
+                                    <th>Nombre</th>
+                                    <th>Comentario</th>
+                                    <th>Activo</th>
 
                                     <th></th>
                                 </tr>
@@ -109,7 +109,7 @@
                                         <td>{{ $resource->resourcetype->name }}</td>
                                         <td><a target="_blank" href="{{ route('resources.show', $resource->id) }}">{{ $resource->name }}</a></td>
                                         <td>{{ $resource->comment }}</td>
-                                        <td>{{ $resource->is_active?"YES":"NO" }}</td>
+                                        <td>{{ $resource->is_active?"SI":"NO" }}</td>
 
                                         <td>
                                             <form action="{{ route('resources.destroy',$resource->id) }}" method="POST">

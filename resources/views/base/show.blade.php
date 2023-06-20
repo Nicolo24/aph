@@ -14,7 +14,7 @@
                 <table class="table table-responsive">
                     <thead>
                         <tr>
-                            <th>Resource</th>
+                            <th>Recurso</th>
                             <th>From</th>
                             <th>To</th>
                             <th></th>
@@ -61,27 +61,27 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <strong>Center Id:</strong>
+                    <strong>Centro:</strong>
                     {{ $base->center->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Province Id:</strong>
+                    <strong>Provincia:</strong>
                     {{ $base->province->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Zone Id:</strong>
+                    <strong>Zona:</strong>
                     {{ $base->zone->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Institution Id:</strong>
+                    <strong>Institución:</strong>
                     {{ $base->institution->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Basetype Id:</strong>
+                    <strong>Basetype:</strong>
                     {{ $base->basetype->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
                     {{ $base->name }}
                 </div>
                 <div class="form-group">
@@ -93,12 +93,12 @@
                     {{ $base->longitude }}
                 </div>
                 <div class="form-group">
-                    <strong>Comment:</strong>
+                    <strong>Comentario:</strong>
                     {{ $base->comment }}
                 </div>
                 <div class="form-group">
-                    <strong>Is Active:</strong>
-                    {{ $base->is_active ? 'YES' : 'NO' }}
+                    <strong>Activo:</strong>
+                    {{ $base->is_active ? 'SI' : 'NO' }}
                 </div>
                     
 

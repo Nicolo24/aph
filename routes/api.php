@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\ApiRouteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
 //route for login
-Route::post('/login', [App\Http\Controllers\ApiController::class,'login']);
-//route for logout
-Route::middleware('auth:sanctum')->post('/logout', [App\Http\Controllers\ApiController::class,'logout']);
-//route for get user info
-Route::middleware('auth:sanctum')->post('/me', [App\Http\Controllers\ApiController::class,'me']);
+Route::post('/login', [App\Http\Controllers\ApiController::class, 'login']);
 
 
-
-
-
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [ApiController::class, 'logout']);
+    Route::get('/me', [ApiController::class, 'me']);
+    Route::put('/user/availability', [ApiRouteController::class, 'updateAvailability']);
+    Route::get('/user/availability', [ApiRouteController::class, 'getAvailability']);
+    Route::get('/routes/available', [ApiRouteController::class, 'getAvailableRoutes']);
+    Route::put('/routes/{id}/start', [ApiRouteController::class, 'startRoute']);
+    Route::put('/routes/{id}/informPickedUp', [ApiRouteController::class, 'informPickedUp']);
+    Route::post('/routes/{id}/location', [ApiRouteController::class, 'sendLocation']);
+    Route::put('/routes/{id}/finish', [ApiRouteController::class, 'endRoute']);
+    
+});

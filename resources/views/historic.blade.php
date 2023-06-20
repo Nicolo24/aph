@@ -3,7 +3,6 @@
 @section('content')
     <div class="d-flex justify-content-center">
         <div class="card">
-            <div class="card-header">{{ __('Dashboard') }}</div>
 
             <div class="card-body">
                 @if (session('status'))
@@ -22,10 +21,10 @@
                         <div class="col-md-12">
                             <form action="{{ route('historic') }}" method="GET">
 
-                                <h2>Historico de ambulancias</h2>
+                                <h2>Consultar operatividad por día</h2>
                                 <div class="form-inline">
                                     <div class="form-group mr-3">
-                                        <label for="datepicker">Date:</label>
+                                        <label for="datepicker">Dia:</label>
                                         <div class="input-group mt-2">
                                             <input class="form-control border-end-0 border rounded-pill" type="text" value="{{ $local_when = $when->copy()->subHours(5) }}" id="txtwhen" name="when">
                                             <span class="input-group-append">
@@ -50,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="dropdown">
-                                        <label class="dropdown-toggle mt-2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Filters:</label>
+                                        <label class="dropdown-toggle mt-2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Filtros:</label>
                                         <div class="dropdown-menu">
 
                                             <div class="dropdown-item mt-2">
@@ -59,7 +58,7 @@
 
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                Provinces
+                                                                Provincias
                                                             </div>
                                                             <ul class="list-group list-group-flush">
                                                                 @foreach (App\Models\Province::get() as $province)
@@ -79,7 +78,7 @@
                                                     <div>
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                Centers
+                                                                Centros
                                                             </div>
                                                             <ul class="list-group list-group-flush">
                                                                 @foreach (App\Models\Center::get() as $center)
@@ -98,7 +97,7 @@
                                                     <div>
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                Zones
+                                                                Zonas
                                                             </div>
                                                             <ul class="list-group list-group-flush">
                                                                 @foreach (App\Models\Zone::get() as $zone)
@@ -118,7 +117,7 @@
                                                     <div>
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                Institutions
+                                                                Instituciones
                                                             </div>
                                                             <ul class="list-group list-group-flush">
                                                                 @foreach (App\Models\Institution::get() as $institution)
@@ -153,14 +152,14 @@
                     <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">Province</th>
-                            <th scope="col">Center</th>
-                            <th scope="col">Zone</th>
-                            <th scope="col">Institution</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Since</th>
-                            <th scope="col">Comment</th>
+                            <th scope="col">Provincia</th>
+                            <th scope="col">Centro</th>
+                            <th scope="col">Zona</th>
+                            <th scope="col">Institución</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Desde</th>
+                            <th scope="col">Comentario</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -12,13 +12,13 @@
                 <div style="display: flex; justify-content: space-between; align-items: center;">
 
                     <span id="card_title">
-                        {{ __('Reporttype') }}
+                        {{ __('Tipo de reporte') }}
                     </span>
 
                     <div class="float-end">
                         <a href="{{ route('reporttypes.create') }}" class="btn btn-primary btn-sm float-end"
                             data-placement="left">
-                            {{ __('Create New') }}
+                            {{ __('Crear nuevo') }}
                         </a>
                     </div>
                 </div>
@@ -34,9 +34,10 @@
                     <table class="table table-striped table-hover">
                         <thead class="thead">
                             <tr>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Is Operative</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Operativo</th>
+                                <th>En Emergencia</th>
 
                                 <th></th>
                             </tr>
@@ -46,7 +47,8 @@
                                 <tr>
                                     <td>{{ $reporttype->name }}</td>
                                     <td>{{ $reporttype->description }}</td>
-                                    <td>{{ $reporttype->is_operative?'YES':'NO' }}</td>
+                                    <td>{{ $reporttype->is_operative?'SI':'NO' }}</td>
+                                    <td>{{ $reporttype->in_emergency?'SI':'NO'}}</td>
 
                                     <td>
                                         <form action="{{ route('reporttypes.destroy', $reporttype->id) }}" method="POST">

@@ -41,5 +41,13 @@ Route::resource('reports', App\Http\Controllers\ReportController::class);
 Route::resource('assignations', App\Http\Controllers\AssignationController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('classifications', App\Http\Controllers\ClassificationController::class);
+Route::resource('routes', App\Http\Controllers\RouteController::class);
+Route::resource('locations', App\Http\Controllers\LocationController::class);
 
 Route::post('/items', [App\Http\Controllers\ItemsController::class, 'index'])->name('items.index');
+Route::get('/items/getAllPlaces', [App\Http\Controllers\ItemsController::class, 'getAllPlaces'])->name('items.getAllPlaces');
+Route::get('/items/getAllGeocodes', [App\Http\Controllers\ItemsController::class, 'getAllGeocodes'])->name('items.getAllGeocodes');
+Route::get('/items/getOneGeocode', [App\Http\Controllers\ItemsController::class, 'getOneGeocode'])->name('items.getOneGeocode');
+Route::get('/items/getReverseGeocode', [App\Http\Controllers\ItemsController::class, 'getReverseGeocode'])->name('items.getReverseGeocode');
+
+Route::get('/route/{id}/points', [App\Http\Controllers\ApiRouteController::class, 'getPoints'])->name('route.getPoints');

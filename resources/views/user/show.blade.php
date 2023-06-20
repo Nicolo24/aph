@@ -19,27 +19,27 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Center Id:</strong>
+                            <strong>Centro:</strong>
                             {{ $user->center->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Province Id:</strong>
+                            <strong>Provincia:</strong>
                             {{ $user->province->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Zone Id:</strong>
+                            <strong>Zona:</strong>
                             {{ $user->zone->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Institution Id:</strong>
+                            <strong>Institución:</strong>
                             {{ $user->institution->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Usertype Id:</strong>
+                            <strong>Tipo de usuario:</strong>
                             {{ $user->usertype->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Name:</strong>
+                            <strong>Nombre:</strong>
                             {{ $user->name }}
                         </div>
                         <div class="form-group">

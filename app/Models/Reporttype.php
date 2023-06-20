@@ -23,6 +23,7 @@ class Reporttype extends Model
     static $rules = [
 		'name' => 'required',
 		'is_operative' => 'required',
+		'in_emergency' => 'required',
     ];
 
     protected $perPage = 20;
@@ -32,7 +33,7 @@ class Reporttype extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','description','is_operative','icon'];
+    protected $fillable = ['name','description','is_operative','in_emergency','icon'];
 
 
 

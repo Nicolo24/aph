@@ -3,17 +3,17 @@
         
         <div class="form-group">
             {{ Form::label('resource_id') }}
-            {{ Form::text('resource_id', $report->resource_id, ['class' => 'form-control' . ($errors->has('resource_id') ? ' is-invalid' : ''), 'placeholder' => 'Resource Id']) }}
+            {{ Form::text('resource_id', $report->resource_id, ['class' => 'form-control' . ($errors->has('resource_id') ? ' is-invalid' : ''), 'placeholder' => 'Resource']) }}
             {!! $errors->first('resource_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('user_id') }}
-            {{ Form::text('user_id', $report->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id']) }}
+            {{ Form::text('user_id', $report->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User']) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('reporttype_id') }}
-            {{ Form::text('reporttype_id', $report->reporttype_id, ['class' => 'form-control' . ($errors->has('reporttype_id') ? ' is-invalid' : ''), 'placeholder' => 'Reporttype Id']) }}
+            {{ Form::text('reporttype_id', $report->reporttype_id, ['class' => 'form-control' . ($errors->has('reporttype_id') ? ' is-invalid' : ''), 'placeholder' => 'Reporttype']) }}
             {!! $errors->first('reporttype_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class ="form-group">

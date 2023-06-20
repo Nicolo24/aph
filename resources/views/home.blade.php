@@ -18,7 +18,7 @@
             <div class="float-end d-flex justify-content-between">
                 <div class="form-check ">
                     <input class="form-check-input align-middle" type="checkbox" id="autorefresh-checkbox">
-                    <label class="form-check-label align-middle" for="autorefresh-checkbox">Autorefresh (5
+                    <label class="form-check-label align-middle" for="autorefresh-checkbox">Autorefresco (5
                         sec)</label>
                 </div>
 
@@ -107,7 +107,7 @@
                                     <input type="hidden" name="base_id" value="{{ $base->id }}">
                                     <select class="form-select form-select-sm" name="resource_id" id="resource_id"
                                         onchange="form.submit()">
-                                        <option value="0">Select Resource</option>
+                                        <option value="0">Seleccionar recurso</option>
                                         @foreach ($base->available_resources as $resource)
                                             <option value="{{ $resource->id }}">
                                                 {{ $resource->name }}
@@ -126,9 +126,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
-                                    <th scope="col">Resource</th>
-                                    <th scope="col">Assigned By</th>
-                                    <th scope="col">Since</th>
+                                    <th scope="col">Recurso</th>
+                                    <th scope="col">Asignado Por</th>
+                                    <th scope="col">Desde</th>
                                     <th scope="col" class=" text-end"></th>
                                 </tr>
                             </thead>
@@ -164,7 +164,7 @@
                                                                     </div>
                                                                     <div class="col text-end">
                                                                         <button type="submit"
-                                                                            class="btn btn-primary mt-2">Save</button>
+                                                                            class="btn btn-primary mt-2">Guardar</button>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">

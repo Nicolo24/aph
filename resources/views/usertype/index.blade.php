@@ -11,12 +11,12 @@
                 <div style="display: flex; justify-content: space-between; align-items: center;">
 
                     <span id="card_title">
-                        {{ __('Usertype') }}
+                        {{ __('Tipo de usuario') }}
                     </span>
 
                     <div class="float-end">
                         <a href="{{ route('usertypes.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
-                            {{ __('Create New') }}
+                            {{ __('Crear nuevo') }}
                         </a>
                     </div>
                 </div>
@@ -34,8 +34,8 @@
                             <tr>
                                 <th>ID</th>
 
-                                <th>Name</th>
-                                <th>Description</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
 
                                 <th></th>
                             </tr>

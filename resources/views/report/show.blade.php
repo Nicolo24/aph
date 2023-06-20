@@ -19,19 +19,19 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Resource Id:</strong>
+                            <strong>ID de Recurso:</strong>
                             {{ $report->resource->name }}
                         </div>
                         <div class="form-group">
-                            <strong>User Id:</strong>
+                            <strong>Usuario:</strong>
                             {{ $report->user->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Reporttype Id:</strong>
+                            <strong>Tipo:</strong>
                             {{ $report->reporttype->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Comment:</strong>
+                            <strong>Comentario:</strong>
                             {{ $report->comment }}
                         </div>
 

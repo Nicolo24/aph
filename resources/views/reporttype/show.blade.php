@@ -19,15 +19,15 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
                     {{ $reporttype->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Description:</strong>
+                    <strong>Descripción:</strong>
                     {{ $reporttype->description }}
                 </div>
                 <div class="form-group">
-                    <strong>Is Operative:</strong>
+                    <strong>Operativo:</strong>
                     {{ $reporttype->is_operative }}
                 </div>
 

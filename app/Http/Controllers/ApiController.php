@@ -19,13 +19,14 @@ class ApiController extends Controller
 
     public function logout()
     {
-        auth()->logout();
-        return response()->json(['message' => 'Successfully logged out']);
+        auth()->user()->tokens()->delete();
+        return response()->json(['message' => 'Logged out']);
     }
 
     public function me()
     {
-        return response()->json(auth()->user());
+        $user = auth()->user();
+        return response()->json($user->load(['center','province','zone','institution','usertype', 'resource']));        
     }
     
     protected function respondWithToken($token)

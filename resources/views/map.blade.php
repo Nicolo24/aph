@@ -23,7 +23,7 @@
             <div class="float-end d-flex justify-content-between">
                 <div class="form-check ">
                     <input class="form-check-input align-middle" type="checkbox" id="autorefresh-checkbox">
-                    <label class="form-check-label align-middle" for="autorefresh-checkbox">Autorefresh (5
+                    <label class="form-check-label align-middle" for="autorefresh-checkbox">Autorefresco (5
                         sec)</label>
                 </div>
 
@@ -141,7 +141,7 @@
                                     @csrf
                                     <input type="hidden" name="base_id" value="{{ $base->id }}">
                                     <select class="form-select form-select-sm select-hide-selected" name="resource_id" id="resource_id" onchange="form.submit()">
-                                    <option value="0">Add</option>
+                                    <option value="0">Agregar</option>
                                     @foreach ($base->available_resources as $resource)
                                     <option value="{{ $resource->id }}">{{ $resource->name }} ({{ $resource->last_report ? $resource->last_report->reporttype->name : 'Sin reportes' }})</option>
                                     @endforeach
@@ -175,7 +175,7 @@
                                                                             @endforeach
                                                                         </div>
                                                                         <div class="col text-end">
-                                                                            <button type="submit" class="btn btn-primary mt-2">Save</button>
+                                                                            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">

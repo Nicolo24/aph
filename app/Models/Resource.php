@@ -101,6 +101,11 @@ class Resource extends Model
         return $this->hasOne('App\Models\Resourcetype', 'id', 'resourcetype_id');
     }
 
+    public function users()
+    {
+        return $this->hasMany('App\Models\User', 'resource_id', 'id');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

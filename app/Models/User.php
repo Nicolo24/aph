@@ -38,6 +38,7 @@ class User extends Authenticatable
         'province_id',
         'zone_id',
         'institution_id',
+        'resource_id',
         'usertype_id',
     ];
 
@@ -85,6 +86,11 @@ class User extends Authenticatable
         return $this->belongsTo(Usertype::class);
     }
 
+    function resource()
+    {
+        return $this->belongsTo(Resource::class);
+    }
+
     function getBasesAttribute()
     {
         if ($this->usertype->name == "Analista de despacho") {
@@ -107,5 +113,18 @@ class User extends Authenticatable
                 ["center_id", "=", $this->center_id],
             ])->get();
         }
+    }
+
+    // get available routes, return route where resource_id = user->resource_id and route->user_id = null
+    function getAvailableRoutesAttribute()
+    {
+        $resource = $this->resource;
+        //if resource is not null
+        if ($resource) {
+            return \App\Models\Route::where("resource_id", $resource->id)->whereNull('user_id')->get();
+        } else {
+            return [];
+        }
+
     }
 }

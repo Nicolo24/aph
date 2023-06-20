@@ -13,8 +13,12 @@
         </div>
         <div class="form-group">
             {{ Form::label('is_operative') }}
-            {{ Form::select('is_operative', [0=>'NO',1=>'YES'], $reporttype->is_operative, ['class' => 'form-control' . ($errors->has('is_operative') ? ' is-invalid' : ''), 'placeholder' => 'Is Operative']) }}
+            {{ Form::select('is_operative', [0=>'NO',1=>'SI'], $reporttype->is_operative, ['class' => 'form-control' . ($errors->has('is_operative') ? ' is-invalid' : ''), 'placeholder' => 'Operativo']) }}
             {!! $errors->first('is_operative', '<div class="invalid-feedback">:message</div>') !!}
+            <div class="form-group">
+                {{ Form::label('in_emergency') }}
+                {{ Form::select('in_emergency', [0=>'NO',1=>'SI'], $reporttype->in_emergency, ['class' => 'form-control' . ($errors->has('in_emergency') ? ' is-invalid' : ''), 'placeholder' => 'En Emergencia']) }}
+                {!! $errors->first('in_emergency', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('icon')}}

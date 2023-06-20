@@ -5,9 +5,11 @@
             {{ Form::label('center') }}
 
             <div>
-                <select id="center_id" class="form-control @error('center_id') is-invalid @enderror" name="center_id" required>
+                <select id="center_id" class="form-control @error('center_id') is-invalid @enderror" name="center_id"
+                    required>
                     @foreach (\App\Models\Center::all() as $center)
-                        <option value="{{ $center->id }}" {{ $user->center_id == $center->id ? 'selected' : '' }}>{{ $center->name }}</option>
+                        <option value="{{ $center->id }}" {{ $user->center_id == $center->id ? 'selected' : '' }}>
+                            {{ $center->name }}</option>
                     @endforeach
                 </select>
 
@@ -23,9 +25,11 @@
             {{ Form::label('province') }}
 
             <div>
-                <select id="province_id" class="form-control @error('province_id') is-invalid @enderror" name="province_id" required>
+                <select id="province_id" class="form-control @error('province_id') is-invalid @enderror"
+                    name="province_id" required>
                     @foreach (\App\Models\Province::all() as $province)
-                        <option value="{{ $province->id }}" {{ $user->province_id == $province->id ? 'selected' : '' }}>{{ $province->name }}</option>
+                        <option value="{{ $province->id }}" {{ $user->province_id == $province->id ? 'selected' : '' }}>
+                            {{ $province->name }}</option>
                     @endforeach
                 </select>
 
@@ -41,9 +45,11 @@
             {{ Form::label('zone') }}
 
             <div>
-                <select id="zone_id" class="form-control @error('province_id') is-invalid @enderror" name="zone_id" required>
+                <select id="zone_id" class="form-control @error('province_id') is-invalid @enderror" name="zone_id"
+                    required>
                     @foreach (\App\Models\Zone::all() as $zone)
-                        <option value="{{ $zone->id }}" {{ $user->zone_id == $zone->id ? 'selected' : '' }}>{{ $zone->name }}</option>
+                        <option value="{{ $zone->id }}" {{ $user->zone_id == $zone->id ? 'selected' : '' }}>
+                            {{ $zone->name }}</option>
                     @endforeach
                 </select>
 
@@ -59,9 +65,12 @@
             {{ Form::label('institution') }}
 
             <div>
-                <select id="institution_id" class="form-control @error('institution_id') is-invalid @enderror" name="institution_id" required>
+                <select id="institution_id" class="form-control @error('institution_id') is-invalid @enderror"
+                    name="institution_id" required>
                     @foreach (\App\Models\Institution::all() as $institution)
-                        <option value="{{ $institution->id }}" {{ $user->institution_id == $institution->id ? 'selected' : '' }}>{{ $institution->name }}</option>
+                        <option value="{{ $institution->id }}"
+                            {{ $user->institution_id == $institution->id ? 'selected' : '' }}>{{ $institution->name }}
+                        </option>
                     @endforeach
                 </select>
 
@@ -74,22 +83,47 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('base type') }}
+            {{ Form::label('User type') }}
 
             <div>
-                <select id="usertype_id" class="form-control @error('usertype') is-invalid @enderror" name="usertype_id" required>
+                <select id="usertype_id" class="form-control @error('usertype') is-invalid @enderror" name="usertype_id"
+                    required>
                     @foreach (\App\Models\Usertype::all() as $usertype)
-                        <option value="{{ $usertype->id }}" {{ $user->usertype_id == $usertype->id ? 'selected' : '' }}>{{ $usertype->name }}</option>
+                        <option value="{{ $usertype->id }}"
+                            {{ $user->usertype_id == $usertype->id ? 'selected' : '' }}>{{ $usertype->name }}</option>
                     @endforeach
                 </select>
 
-                @error('basetype')
+                @error('usertype')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
         </div>
+
+        <div class="form-group">
+            {{ Form::label('Resource') }}
+            <div>
+                <select id="resource_id" class="form-control @error('resource_id') is-invalid @enderror"
+                    name="resource_id" required>
+                    <option value=""></option>
+
+                    @foreach (Auth::user()->resources as $resource)
+                        <option value="{{ $resource->id }}"
+                            {{ $user->resource_id == $resource->id ? 'selected' : '' }}>{{ $resource->name }}</option>
+                    @endforeach
+                </select>
+
+                @error('resource_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+
         <div class="form-group">
             {{ Form::label('name') }}
             {{ Form::text('name', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}

@@ -19,11 +19,11 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
                     {{ $basetype->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Description:</strong>
+                    <strong>Descripción:</strong>
                     {{ $basetype->description }}
                 </div>
 

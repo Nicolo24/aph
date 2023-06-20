@@ -14,10 +14,10 @@
                 <table class="table table-responsive">
                     <tr>
                         <th></th>
-                        <th>Report</th>
-                        <th>Since</th>
-                        <th>By</th>
-                        <th>Comment</th>
+                        <th>Reporte</th>
+                        <th>Desde</th>
+                        <th>Por</th>
+                        <th>Comentario</th>
                         <th></th>
                     </tr>
                     @foreach ($resource->reports->sortByDesc('created_at') as $report)
@@ -46,44 +46,52 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    <span class="card-title">Resource Info</span>
+                    <span class="card-title">Información del recurso</span>
                 </div>
             </div>
 
             <div class="card-body">
+                @if ($message = Session::get('warning'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
 
                 <div class="form-group">
-                    <strong>Center:</strong>
+                    <strong>Centro:</strong>
                     {{ $resource->center->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Province:</strong>
+                    <strong>Provincia:</strong>
                     {{ $resource->province->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Zone:</strong>
+                    <strong>Zona:</strong>
                     {{ $resource->zone->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Institution:</strong>
+                    <strong>Institución:</strong>
                     {{ $resource->institution->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Resource Type:</strong>
+                    <strong>Tipo de Recurso:</strong>
                     {{ $resource->resourcetype->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
                     {{ $resource->name }}
                 </div>
                 <div class="form-group">
-                    <strong>Comment:</strong>
+                    <strong>Comentario:</strong>
                     {{ $resource->comment }}
                 </div>
                 <div class="form-group">
-                    <strong>Is Active:</strong>
-                    {{ $resource->is_active ? 'YES' : 'NO' }}
+                    <strong>Activo:</strong>
+                    {{ $resource->is_active ? 'SI' : 'NO' }}
                 </div>
+                <a class="btn btn-primary" href="{{ route('routes.create', ['resource_id' => $resource->id]) }}">Create
+                    Route</a>
+
 
             </div>
         </div>

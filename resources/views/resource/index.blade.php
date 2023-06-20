@@ -11,12 +11,12 @@
                 <div style="display: flex; justify-content: space-between; align-items: center;">
 
                     <span id="card_title">
-                        {{ __('Resource') }}
+                        {{ __('Recurso') }}
                     </span>
 
                     <div class="float-end">
                         <a href="{{ route('resources.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
-                            {{ __('Create New') }}
+                            {{ __('Crear nuevo') }}
                         </a>
                     </div>
                 </div>
@@ -37,14 +37,14 @@
                             <tr>
                                 <th>ID</th>
 
-                                <th>Center</th>
-                                <th>Province</th>
-                                <th>Zone</th>
-                                <th>Institution</th>
-                                <th>Resourcetype</th>
-                                <th>Name</th>
-                                <th>Comment</th>
-                                <th>Is Active</th>
+                                <th>Centro</th>
+                                <th>Provincia</th>
+                                <th>Zona</th>
+                                <th>Institución</th>
+                                <th>Tipo de recurso</th>
+                                <th>Nombre</th>
+                                <th>Comentario</th>
+                                <th>Activo</th>
 
                                 <th></th>
                             </tr>
@@ -61,7 +61,7 @@
                                     <td>{{ $resource->resourcetype->name }}</td>
                                     <td>{{ $resource->name }}</td>
                                     <td>{{ $resource->comment }}</td>
-                                    <td>{{ $resource->is_active ? 'YES' : 'NO' }}</td>
+                                    <td>{{ $resource->is_active ? 'SI' : 'NO' }}</td>
 
                                     <td>
                                         <form action="{{ route($resource->is_active ? 'resources.destroy' : 'resources.restore', $resource->id) }}" method="POST">

@@ -11,12 +11,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Assignation') }}
+                                {{ __('Asignación') }}
                             </span>
 
                              <div class="float-end">
                                 <a href="{{ route('assignations.create') }}" class="btn btn-primary btn-sm float-end"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -37,10 +37,10 @@
                                     <tr>
                                         <th>ID</th>
                                         
-										<th>Resource</th>
+										<th>Recurso</th>
 										<th>Base</th>
-										<th>User</th>
-										<th>Is Active</th>
+										<th>Usuario</th>
+										<th>Activo</th>
 
                                         <th></th>
                                     </tr>
@@ -53,7 +53,7 @@
 											<td><a target="_blank" href="{{ route('resources.show', $assignation->resource->id) }}">{{ $assignation->resource->name }}</a></td>
 											<td><a target="_blank" href="{{ route('bases.show', $assignation->base->id) }}">{{ $assignation->base->name }}</a></td>
 											<td>{{ $assignation->user->name }}</td>
-											<td>{{ $assignation->is_active?"YES":"NO" }}</td>
+											<td>{{ $assignation->is_active?"SI":"NO" }}</td>
 
                                             <td>
                                                 <form action="{{ route('assignations.destroy',$assignation->id) }}" method="POST">

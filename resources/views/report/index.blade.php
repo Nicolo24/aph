@@ -11,12 +11,12 @@
                 <div style="display: flex; justify-content: space-between; align-items: center;">
 
                     <span id="card_title">
-                        {{ __('Report') }}
+                        {{ __('Reporte') }}
                     </span>
 
                     <div class="float-end">
                         <a href="{{ route('reports.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
-                            {{ __('Create New') }}
+                            {{ __('Crear nuevo') }}
                         </a>
                     </div>
                 </div>
@@ -33,11 +33,11 @@
                         <thead class="thead">
                             <tr>
                                 <th>ID</th>
-                                <th>Reported At</th>
-                                <th>Resource</th>
-                                <th>User</th>
-                                <th>Reporttype</th>
-                                <th>Comment</th>
+                                <th>Reportado</th>
+                                <th>Recurso</th>
+                                <th>Usuario</th>
+                                <th>Tipo</th>
+                                <th>Comentario</th>
 
                                 <th></th>
                             </tr>

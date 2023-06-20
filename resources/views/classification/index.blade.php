@@ -9,19 +9,19 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="resourcetype-tab" data-bs-toggle="tab" data-bs-target="#resourcetype"
-                    type="button" role="tab" aria-controls="home" aria-selected="true">Resourcetype</button>
+                    type="button" role="tab" aria-controls="home" aria-selected="true">Tipo de recurso</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="basetype-tab" data-bs-toggle="tab" data-bs-target="#basetype" type="button"
-                    role="tab" aria-controls="profile" aria-selected="false">Basetype</button>
+                    role="tab" aria-controls="profile" aria-selected="false">Tipo de base</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="reporttype-tab" data-bs-toggle="tab" data-bs-target="#reporttype"
-                    type="button" role="tab" aria-controls="contact" aria-selected="false">Reporttype</button>
+                    type="button" role="tab" aria-controls="contact" aria-selected="false">Tipo de reporte</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="usertype-tab" data-bs-toggle="tab" data-bs-target="#usertype" type="button"
-                    role="tab" aria-controls="contact" aria-selected="false">Usertype</button>
+                    role="tab" aria-controls="contact" aria-selected="false">Tipo de usuario</button>
             </li>
 
         </ul>
@@ -35,7 +35,7 @@
                             <div class="float-end">
                                 <a href="{{ route('resourcetypes.create') }}" class="btn btn-primary btn-sm float-end"
                                     data-placement="left">
-                                    {{ __('Create New') }}
+                                    {{ __('Crear nuevo') }}
                                 </a>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                                     <tr>
                                         <th>ID</th>
 
-                                        <th>Name</th>
-                                        <th>Description</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
 
                                         <th></th>
                                     </tr>
@@ -100,7 +100,7 @@
                             <div class="float-end">
                                 <a href="{{ route('usertypes.create') }}" class="btn btn-primary btn-sm float-end"
                                     data-placement="left">
-                                    {{ __('Create New') }}
+                                    {{ __('Crear nuevo') }}
                                 </a>
                             </div>
                         </div>
@@ -118,8 +118,8 @@
                                     <tr>
                                         <th>ID</th>
 
-                                        <th>Name</th>
-                                        <th>Description</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
 
                                         <th></th>
                                     </tr>
@@ -165,7 +165,7 @@
                             <div class="float-end">
                                 <a href="{{ route('basetypes.create') }}" class="btn btn-primary btn-sm float-end"
                                     data-placement="left">
-                                    {{ __('Create New') }}
+                                    {{ __('Crear nuevo') }}
                                 </a>
                             </div>
                         </div>
@@ -183,8 +183,8 @@
                                     <tr>
                                         <th>ID</th>
 
-                                        <th>Name</th>
-                                        <th>Description</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
 
                                         <th></th>
                                     </tr>
@@ -230,7 +230,7 @@
                             <div class="float-end">
                                 <a href="{{ route('reporttypes.create') }}" class="btn btn-primary btn-sm float-end"
                                     data-placement="left">
-                                    {{ __('Create New') }}
+                                    {{ __('Crear nuevo') }}
                                 </a>
                             </div>
                         </div>
@@ -246,9 +246,10 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Is Operative</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                        <th>Operativo</th>
+                                        <th>En Emergencia</th>
                                         <th>Icon</th>
 
                                         <th></th>
@@ -259,7 +260,8 @@
                                         <tr>
                                             <td>{{ $reporttype->name }}</td>
                                             <td>{{ $reporttype->description }}</td>
-                                            <td>{{ $reporttype->is_operative ? 'YES' : 'NO' }}</td>
+                                            <td>{{ $reporttype->is_operative ? 'SI' : 'NO' }}</td>
+                                            <td>{{ $reporttype->in_emergency ? 'SI' : 'NO' }}</td>
                                             <td>{!! $reporttype->icon !!}</td>
 
                                             <td>

@@ -19,20 +19,20 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Resource Id:</strong>
+                            <strong>ID de Recurso:</strong>
                             {{ $assignation->resource->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Base Id:</strong>
+                            <strong>Base:</strong>
                             {{ $assignation->base->name }}
                         </div>
                         <div class="form-group">
-                            <strong>User Id:</strong>
+                            <strong>Usuario:</strong>
                             {{ $assignation->user->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Is Active:</strong>
-                            {{ $assignation->is_active?"YES":"NO" }}
+                            <strong>Activo:</strong>
+                            {{ $assignation->is_active?"SI":"NO" }}
                         </div>
 
                     </div>

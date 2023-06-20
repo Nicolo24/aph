@@ -16,7 +16,7 @@
 
                     <div class="float-end">
                         <a href="{{ route('bases.create') }}" class="btn btn-primary btn-sm float-end" data-placement="left">
-                            {{ __('Create New') }}
+                            {{ __('Crear nuevo') }}
                         </a>
                     </div>
                 </div>
@@ -37,16 +37,16 @@
                             <tr>
                                 <th>ID</th>
 
-                                <th>Center</th>
-                                <th>Province</th>
-                                <th>Zone</th>
-                                <th>Institution</th>
+                                <th>Centro</th>
+                                <th>Provincia</th>
+                                <th>Zona</th>
+                                <th>Institución</th>
                                 <th>Basetype</th>
-                                <th>Name</th>
+                                <th>Nombre</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
-                                <th>Comment</th>
-                                <th>Is Active</th>
+                                <th>Comentario</th>
+                                <th>Activo</th>
 
                                 <th></th>
                             </tr>
@@ -65,7 +65,7 @@
                                     <td>{{ $base->latitude }}</td>
                                     <td>{{ $base->longitude }}</td>
                                     <td>{{ $base->comment }}</td>
-                                    <td>{{ $base->is_active ? 'YES' : 'NO' }}</td>
+                                    <td>{{ $base->is_active ? 'SI' : 'NO' }}</td>
 
                                     <td>
                                         <form action="{{ $base->is_active ? route('bases.destroy', $base->id) : route('bases.restore', $base->id) }}" method="POST">
