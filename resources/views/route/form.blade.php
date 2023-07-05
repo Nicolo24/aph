@@ -27,7 +27,7 @@
                         <div class="accordion-body">
                             <div class="form-group">
                                 {{ Form::label('start_address') }}
-                                {{ Form::text('start_address', $route->start_address, ['class' => 'form-control' . ($errors->has('start_address') ? ' is-invalid' : ''), 'placeholder' => 'Start Address', 'id' => 'start_address']) }}
+                                {{ Form::text('start_address', $route->start_address, ['class' => 'form-control' . ($errors->has('start_address') ? ' is-invalid' : ''), 'placeholder' => 'Punto de inicio', 'id' => 'start_address']) }}
                                 {!! $errors->first('start_address', '<div class="invalid-feedback">:message</div>') !!}
                                 <button type="button" class="btn btn-primary" id="start_button">Search</button>
                             </div>
@@ -54,7 +54,7 @@
                         <div class="accordion-body">
                             <div class="form-group">
                                 {{ Form::label('emergency_address') }}
-                                {{ Form::text('emergency_address', $route->emergency_address, ['class' => 'form-control' . ($errors->has('emergency_address') ? ' is-invalid' : ''), 'placeholder' => 'Emergency Address', 'id' => 'emergency_address']) }}
+                                {{ Form::text('emergency_address', $route->emergency_address, ['class' => 'form-control' . ($errors->has('emergency_address') ? ' is-invalid' : ''), 'placeholder' => 'Punto de recogida', 'id' => 'emergency_address']) }}
                                 {!! $errors->first('emergency_address', '<div class="invalid-feedback">:message</div>') !!}
                                 <button type="button" class="btn btn-primary" id="emergency_button">Search</button>
                             </div>
@@ -81,7 +81,7 @@
                         <div class="accordion-body">
                             <div class="form-group">
                                 {{ Form::label('destination_address') }}
-                                {{ Form::text('destination_address', $route->destination_address, ['class' => 'form-control' . ($errors->has('destination_address') ? ' is-invalid' : ''), 'placeholder' => 'Destination Address', 'id' => 'destination_address']) }}
+                                {{ Form::text('destination_address', $route->destination_address, ['class' => 'form-control' . ($errors->has('destination_address') ? ' is-invalid' : ''), 'placeholder' => 'Punto de destino', 'id' => 'destination_address']) }}
                                 {!! $errors->first('destination_address', '<div class="invalid-feedback">:message</div>') !!}
                                 <button type="button" class="btn btn-primary" id="destination_button">Search</button>
                             </div>
@@ -316,7 +316,7 @@
 
         <div class="form-group">
             {{ Form::label('instructions') }}
-            {{ Form::text('instructions', $route->instructions, ['class' => 'form-control' . ($errors->has('instructions') ? ' is-invalid' : ''), 'placeholder' => 'Instructions']) }}
+            {{ Form::text('instructions', $route->instructions, ['class' => 'form-control' . ($errors->has('instructions') ? ' is-invalid' : ''), 'placeholder' => 'Instrucciones']) }}
             {!! $errors->first('instructions', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>

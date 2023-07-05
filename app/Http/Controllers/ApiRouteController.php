@@ -80,7 +80,7 @@ class ApiRouteController extends Controller
         $report->resource_id = $resource->id;
         $report->comment = "user $user->email started route $id";
         $report->save();
-        //update route with user id and start time
+        //update route with user id and Hora de Inicio
         $route = \App\Models\Route::find($id);
         $route->user_id = $user->id;
         $route->start_time = now();

@@ -54,10 +54,10 @@
                                         <form action="{{ route('basetypes.destroy', $basetype->id) }}" method="POST">
                                             <a class="btn btn-sm btn-primary "
                                                 href="{{ route('basetypes.show', $basetype->id) }}"><i
-                                                    class="fa fa-fw fa-eye"></i> Show</a>
+                                                    class="fa fa-fw fa-eye"></i></a>
                                             <a class="btn btn-sm btn-success"
                                                 href="{{ route('basetypes.edit', $basetype->id) }}"><i
-                                                    class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    class="fa fa-fw fa-edit"></i></a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm"><i

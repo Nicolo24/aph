@@ -91,7 +91,7 @@ class RouteController extends Controller
         Start: $request->start_address
         Emergency: $request->emergency_address
         End: $request->destination_address
-        Instructions: $request->instructions
+        Instrucciones: $request->instructions
         Route: $route->id
         EOD;
         $report->save();

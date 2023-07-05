@@ -38,13 +38,13 @@
                                         
 										<th>ID de Recurso</th>
 										<th>Usuario</th>
-										<th>Start Address</th>
-										<th>Emergency Address</th>
-										<th>Destination Address</th>
-										<th>Start Time</th>
-										<th>Pickup Time</th>
-										<th>End Time</th>
-										<th>Instructions</th>
+										<th>Punto de inicio</th>
+										<th>Punto de recogida</th>
+										<th>Punto de destino</th>
+										<th>Hora de Inicio</th>
+										<th>Hora de recogida</th>
+										<th>Hora de fin</th>
+										<th>Instrucciones</th>
 
                                         <th></th>
                                     </tr>
@@ -66,11 +66,11 @@
 
                                             <td>
                                                 <form action="{{ route('routes.destroy',$route->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('routes.show',$route->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('routes.edit',$route->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('routes.show',$route->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('routes.edit',$route->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

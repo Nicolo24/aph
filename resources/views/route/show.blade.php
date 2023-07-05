@@ -23,7 +23,7 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <strong>ID de Recurso:</strong>
+                            <strong>Recurso:</strong>
                             <span id="resource_id"></span>
                         </div>
                         <div class="form-group">
@@ -31,31 +31,31 @@
                             <span id="user_id"></span>
                         </div>
                         <div class="form-group">
-                            <strong>Start Address:</strong>
+                            <strong>Punto de inicio:</strong>
                             <span id="start_address"></span>
                         </div>
                         <div class="form-group">
-                            <strong>Emergency Address:</strong>
+                            <strong>Punto de recogida:</strong>
                             <span id="emergency_address"></span>
                         </div>
                         <div class="form-group">
-                            <strong>Destination Address:</strong>
+                            <strong>Punto de destino:</strong>
                             <span id="destination_address"></span>
                         </div>
                         <div class="form-group">
-                            <strong>Start Time:</strong>
+                            <strong>Hora de Inicio:</strong>
                             <span id="start_time"></span>
                         </div>
                         <div class="form-group">
-                            <strong>Pickup Time:</strong>
+                            <strong>Hora de recogida:</strong>
                             <span id="pickup_time"></span>
                         </div>
                         <div class="form-group">
-                            <strong>End Time:</strong>
+                            <strong>Hora de fin:</strong>
                             <span id="end_time"></span>
                         </div>
                         <div class="form-group">
-                            <strong>Instructions:</strong>
+                            <strong>Instrucciones:</strong>
                             <span id="instructions"></span>
                         </div>
                         <h1>Estado de la Ruta</h1>
@@ -159,15 +159,15 @@
                                 // Función para actualizar el contenido en el documento HTML
                                 function updateContent(response) {
                                     // Actualizar los elementos HTML con los datos de la respuesta
-                                    document.getElementById("resource_id").textContent = response.route.resource_id;
-                                    document.getElementById("user_id").textContent = response.route.user_id;
+                                    document.getElementById("resource_id").textContent = response.route.resource ? response.route.resource.name : 'Sin asignar';
+                                    document.getElementById("user_id").textContent = response.route.user ? response.route.user.name : 'Sin asignar';
                                     document.getElementById("start_address").textContent = response.route.start_address;
                                     document.getElementById("emergency_address").textContent = response.route.emergency_address;
                                     document.getElementById("destination_address").textContent = response.route.destination_address;
-                                    document.getElementById("start_time").textContent = response.route.start_time;
-                                    document.getElementById("pickup_time").textContent = response.route.pickup_time;
-                                    document.getElementById("end_time").textContent = response.route.end_time;
-                                    document.getElementById("instructions").textContent = response.route.instructions;
+                                    document.getElementById("start_time").textContent = response.route.start_time ? response.route.start_time : 'Sin iniciar';
+                                    document.getElementById("pickup_time").textContent = response.route.pickup_time ? response.route.pickup_time : 'Sin recoger';
+                                    document.getElementById("end_time").textContent = response.route.end_time ? response.route.end_time : 'Sin finalizar';
+                                    document.getElementById("instructions").textContent = response.route.instructions ? response.route.instructions : 'Sin instrucciones';
                                     document.getElementById("status").textContent = response.route.status;
 
                                     // Realizar la siguiente llamada AJAX después de 5 segundos
