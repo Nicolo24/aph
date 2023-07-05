@@ -24,66 +24,42 @@
 
                         <div class="form-group">
                             <strong>ID de Recurso:</strong>
-                            {{ $route->resource_id }}
+                            <span id="resource_id"></span>
                         </div>
                         <div class="form-group">
                             <strong>Usuario:</strong>
-                            {{ $route->user_id }}
+                            <span id="user_id"></span>
                         </div>
                         <div class="form-group">
                             <strong>Start Address:</strong>
-                            {{ $route->start_address }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Start Latitude:</strong>
-                            {{ $route->start_latitude }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Start Longitude:</strong>
-                            {{ $route->start_longitude }}
+                            <span id="start_address"></span>
                         </div>
                         <div class="form-group">
                             <strong>Emergency Address:</strong>
-                            {{ $route->emergency_address }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Emergency Latitude:</strong>
-                            {{ $route->emergency_latitude }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Emergency Longitude:</strong>
-                            {{ $route->emergency_longitude }}
+                            <span id="emergency_address"></span>
                         </div>
                         <div class="form-group">
                             <strong>Destination Address:</strong>
-                            {{ $route->destination_address }}
+                            <span id="destination_address"></span>
                         </div>
                         <div class="form-group">
                             <strong>Start Time:</strong>
-                            {{ $route->start_time }}
+                            <span id="start_time"></span>
                         </div>
                         <div class="form-group">
                             <strong>Pickup Time:</strong>
-                            {{ $route->pickup_time }}
+                            <span id="pickup_time"></span>
                         </div>
                         <div class="form-group">
                             <strong>End Time:</strong>
-                            {{ $route->end_time }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Destination Latitude:</strong>
-                            {{ $route->destination_latitude }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Destination Longitude:</strong>
-                            {{ $route->destination_longitude }}
+                            <span id="end_time"></span>
                         </div>
                         <div class="form-group">
                             <strong>Instructions:</strong>
-                            {{ $route->instructions }}
+                            <span id="instructions"></span>
                         </div>
                         <h1>Estado de la Ruta</h1>
-                        <h2>Estado: {{ $route->status }}</h2>
+                        <h2>Estado: <span id="status"></span></h2>
 
                         <div id="map" style="height: 400px;width:100%"></div>
 
@@ -137,7 +113,9 @@
                             var group = new L.featureGroup([L.marker(startPoint), L.marker(emergencyPoint), L.marker(pickupPoint)]);
                             map.fitBounds(group.getBounds());
 
-                            var routePolyline = L.polyline([], { color: 'red' }).addTo(map);
+                            var routePolyline = L.polyline([], {
+                                color: 'red'
+                            }).addTo(map);
 
                             function fetchRoutePoints() {
                                 var xhr = new XMLHttpRequest();
@@ -151,13 +129,56 @@
                                     }
                                 };
 
-                                xhr.open('GET', '{{ route('route.getPoints',$route->id) }}', false);
+                                xhr.open('GET', '{{ route('route.getPoints', $route->id) }}', false);
                                 xhr.send();
                             }
 
                             fetchRoutePoints();
                             setInterval(fetchRoutePoints, 1000);
                         </script>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                // Función para realizar la consulta AJAX
+                                function fetchData() {
+                                    var xhr = new XMLHttpRequest();
+                                    xhr.open("GET", "{{ route('items.route', $route->id) }}", true);
+                                    xhr.setRequestHeader("Content-Type", "application/json");
+                                    xhr.onreadystatechange = function() {
+                                        if (xhr.readyState === 4 && xhr.status === 200) {
+                                            var response = JSON.parse(xhr.responseText);
+                                            // Actualizar el contenido en el documento HTML
+                                            updateContent(response);
+                                        } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                                            console.error("Error: " + xhr.status);
+                                        }
+                                    };
+                                    xhr.send();
+                                }
+
+                                // Función para actualizar el contenido en el documento HTML
+                                function updateContent(response) {
+                                    // Actualizar los elementos HTML con los datos de la respuesta
+                                    document.getElementById("resource_id").textContent = response.route.resource_id;
+                                    document.getElementById("user_id").textContent = response.route.user_id;
+                                    document.getElementById("start_address").textContent = response.route.start_address;
+                                    document.getElementById("emergency_address").textContent = response.route.emergency_address;
+                                    document.getElementById("destination_address").textContent = response.route.destination_address;
+                                    document.getElementById("start_time").textContent = response.route.start_time;
+                                    document.getElementById("pickup_time").textContent = response.route.pickup_time;
+                                    document.getElementById("end_time").textContent = response.route.end_time;
+                                    document.getElementById("instructions").textContent = response.route.instructions;
+                                    document.getElementById("status").textContent = response.route.status;
+
+                                    // Realizar la siguiente llamada AJAX después de 5 segundos
+                                    setTimeout(fetchData, 5000);
+                                }
+
+                                // Iniciar la consulta AJAX
+                                fetchData();
+                            });
+                        </script>
+
                     </div>
                 </div>
             </div>

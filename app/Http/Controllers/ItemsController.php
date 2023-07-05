@@ -77,4 +77,15 @@ class ItemsController extends Controller
         $items = json_decode($response->getBody()->getContents());
         return response()->json($items);
     }
+
+    
+
+    public function getRoute($id)
+    {
+        $route = \App\Models\Route::find($id);
+        $route->append('status');
+        $route->load(['user','resource','locations','resource.resourcetype']);
+        return response()->json(['route' => $route]);
+    }
+
 }

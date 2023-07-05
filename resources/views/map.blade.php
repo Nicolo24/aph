@@ -9,7 +9,6 @@
         </div>
     </div>
 
-
     <div class="card" id="map-card">
         <script>
             const elementsAboveCard = document.querySelector('#map-card').getBoundingClientRect().top;
@@ -84,8 +83,7 @@
                         }
                     });
                 </script>
-                <button type="button" class="btn btn-sm btn-outline-secondary ms-4"
-                    onclick="location.reload()">Refrescar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary ms-4" onclick="location.reload()">Refrescar</button>
 
             </div>
         </div>
@@ -94,43 +92,43 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+
 
     <script id="map-script">
-        var mymap = L.map('map').setView([-1.8312, -78.1834], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-            maxZoom: 18,
-        }).addTo(mymap);
+        document.addEventListener('DOMContentLoaded', function() {
+            var mymap = L.map('map').setView([-1.8312, -78.1834], 6);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                maxZoom: 18,
+            }).addTo(mymap);
 
-        var markers = L.layerGroup().addTo(mymap);
-        var group = L.featureGroup();
+            var markers = L.layerGroup().addTo(mymap);
+            var group = L.featureGroup();
 
-        var greenIcon = L.icon({
-            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-        });
-
-        var redIcon = L.icon({
-            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-        });
-
-
-        @foreach (Auth::user()->bases as $base)
-            var marker = L.marker([{{ $base->latitude }}, {{ $base->longitude }}], {
-                icon: {{ $base->is_operative ? 'greenIcon' : 'redIcon' }}
+            var greenIcon = L.icon({
+                iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
             });
-            var popupContent = `
+
+            var redIcon = L.icon({
+                iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+
+
+            @foreach (Auth::user()->bases as $base)
+                var marker = L.marker([{{ $base->latitude }}, {{ $base->longitude }}], {
+                    icon: {{ $base->is_operative ? 'greenIcon' : 'redIcon' }}
+                });
+                var popupContent = `
                     <div class="card">
                         <div class="card-header">
                             {!! $base->icon !!} <a target="_blank" class="fw-bold" href="{{ route('bases.show', $base->id) }}">{{ $base->name }}</a>
@@ -201,16 +199,18 @@
                         </div>
                     </div>
                 `;
-            marker.bindPopup(popupContent);
-            marker.bindTooltip('{{ $base->name }}');
-            group.addLayer(marker);
-        @endforeach
+                marker.bindPopup(popupContent);
+                marker.bindTooltip('{{ $base->name }}');
+                group.addLayer(marker);
+            @endforeach
 
-        group.eachLayer(function(layer) {
-            markers.addLayer(layer);
+            group.eachLayer(function(layer) {
+                markers.addLayer(layer);
+            });
+
+            mymap.addLayer(markers);
+            mymap.fitBounds(group.getBounds());
+
         });
-
-        mymap.addLayer(markers);
-        mymap.fitBounds(group.getBounds());
     </script>
 @endsection

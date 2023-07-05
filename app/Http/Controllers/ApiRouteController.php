@@ -126,5 +126,4 @@ class ApiRouteController extends Controller
         });
         return response()->json(['points' => $points]);
     }
-
 }

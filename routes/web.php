@@ -51,3 +51,5 @@ Route::get('/items/getOneGeocode', [App\Http\Controllers\ItemsController::class,
 Route::get('/items/getReverseGeocode', [App\Http\Controllers\ItemsController::class, 'getReverseGeocode'])->name('items.getReverseGeocode');
 
 Route::get('/route/{id}/points', [App\Http\Controllers\ApiRouteController::class, 'getPoints'])->name('route.getPoints');
+
+Route::get('items/route/{id}',[App\Http\Controllers\ItemsController::class, 'getRoute'])->name('items.route');

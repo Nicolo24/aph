@@ -32,5 +32,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     enabledTransports: ['ws', 'wss'],
 // });
 
-// import leaflet and leaflet routing machine
+// import leaflet
+import L from 'leaflet/dist/leaflet.js';
+window.L = L;
+
+console.log('bootstrap.js loaded');
 
