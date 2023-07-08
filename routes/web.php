@@ -41,6 +41,7 @@ Route::resource('reports', App\Http\Controllers\ReportController::class);
 Route::resource('assignations', App\Http\Controllers\AssignationController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('classifications', App\Http\Controllers\ClassificationController::class);
+Route::get('/route/precreate', [App\Http\Controllers\RouteController::class, 'precreate'])->name('route.precreate');
 Route::resource('routes', App\Http\Controllers\RouteController::class);
 Route::resource('locations', App\Http\Controllers\LocationController::class);
 
@@ -53,3 +54,6 @@ Route::get('/items/getReverseGeocode', [App\Http\Controllers\ItemsController::cl
 Route::get('/route/{id}/points', [App\Http\Controllers\ApiRouteController::class, 'getPoints'])->name('route.getPoints');
 
 Route::get('items/route/{id}',[App\Http\Controllers\ItemsController::class, 'getRoute'])->name('items.route');
+
+Route::get('/items/getPossibleRoutes', [App\Http\Controllers\ItemsController::class, 'getPossibleRoutes'])->name('items.getPossibleRoutes');
+

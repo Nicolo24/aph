@@ -139,6 +139,18 @@ class Resource extends Model
         return $this->reports()->orderByDesc('created_at')->first()->reporttype->is_operative ?? false;
     }
 
+    public function getInEmergencyAttribute()
+    {
+        return $this->reports()->orderByDesc('created_at')->first()->reporttype->in_emergency ?? false;
+    }
+
+    public function getIsAvailableAttribute()
+    {
+        //where getIsOperativeAttribute is true and getInEmergencyAttribute is false and getIsAssignedAttribute is true
+        return $this->getIsOperativeAttribute() && !$this->getInEmergencyAttribute() && $this->getIsAssignedAttribute();
+
+    }
+
     public function getIconAttribute()
     {
         return $this->getLastReportAttribute() ? $this->getLastReportAttribute()->reporttype->icon : "<i class='fas fa-question'></i>";

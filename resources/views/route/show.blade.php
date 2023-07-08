@@ -10,10 +10,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Route</span>
+                        <div class="float-start">
+                            <span class="card-title">Seguimiento de la ruta</span>
                         </div>
-                        <div class="float-right">
+                        <div class="float-end">
                             <a class="btn btn-primary" href="{{ route('routes.index') }}"> Back</a>
                         </div>
                     </div>
@@ -58,8 +58,10 @@
                             <strong>Instrucciones:</strong>
                             <span id="instructions"></span>
                         </div>
-                        <h1>Estado de la Ruta</h1>
-                        <h2>Estado: <span id="status"></span></h2>
+                        <div class="form-group">
+                            <strong>Estado:</strong>
+                            <span id="status"></span>
+                        </div>
 
                         <div id="map" style="height: 400px;width:100%"></div>
 

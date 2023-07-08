@@ -24,6 +24,10 @@ class RouteController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $routes->perPage());
     }
 
+    public function precreate(){
+        return view('route.precreate');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,6 +52,18 @@ class RouteController extends Controller
                     $route->start_address = $resource->last_assignation->base->name;
                     $route->start_latitude = $resource->last_assignation->base->latitude;
                     $route->start_longitude = $resource->last_assignation->base->longitude;
+
+                    //if request has base_lat, base_lng, destination_lat, destination_lng, destination_address, then we are creating a route for a resource with an assignation and a destination
+                    if(
+                        $request->has('destination_lat') && 
+                        $request->has('destination_lng') && 
+                        $request->has('destination_address')
+                    ){
+                        $route->emergency_address = $request->destination_address;
+                        $route->emergency_latitude = $request->destination_lat;
+                        $route->emergency_longitude = $request->destination_lng;
+                    }
+
                     $route->destination_address = $resource->last_assignation->base->name;
                     $route->destination_latitude = $resource->last_assignation->base->latitude;
                     $route->destination_longitude = $resource->last_assignation->base->longitude;
@@ -156,4 +172,6 @@ class RouteController extends Controller
         return redirect()->route('routes.index')
             ->with('success', 'Route deleted successfully');
     }
+
+
 }

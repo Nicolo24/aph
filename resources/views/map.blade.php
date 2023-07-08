@@ -7,6 +7,8 @@
             <h1 class="h6 mb-0 text-white lh-1">{{ Auth::user()->usertype->name }}</h1>
             <small>{{ Auth::user()->institution->name }} - {{ Auth::user()->zone->name }}</small>
         </div>
+        <div class="float-end">
+        </div>
     </div>
 
     <div class="card" id="map-card">
@@ -84,6 +86,7 @@
                     });
                 </script>
                 <button type="button" class="btn btn-sm btn-outline-secondary ms-4" onclick="location.reload()">Refrescar</button>
+                <a type="button" class="btn btn-sm btn-danger ms-4" href="{{ route('route.precreate') }}">Despachar un recurso</a>
 
             </div>
         </div>

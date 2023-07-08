@@ -283,8 +283,6 @@
 
             }
 
-            // Establece las direcciones iniciales de los usuarios como el valor de búsqueda y centra el mapa
-            emergencyAddressInput.value = "{{ Auth::user()->center->name }}";
             searchAddress(emergencyAddressInput, emergencyLatitudeInput, emergencyLongitudeInput, emergencyMarker);
             //actualizar posicion del marcador de inicio a la latitud y longitud de los inputs de start
             updateMarkerPosition(startLatitudeInput.value, startLongitudeInput.value, startLatitudeInput,
