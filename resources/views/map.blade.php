@@ -126,10 +126,19 @@
                 shadowSize: [41, 41]
             });
 
+            var blueIcon = L.icon({
+                iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+
 
             @foreach (Auth::user()->bases as $base)
                 var marker = L.marker([{{ $base->latitude }}, {{ $base->longitude }}], {
-                    icon: {{ $base->is_operative ? 'greenIcon' : 'redIcon' }}
+                    icon: {{ $base->is_operative ? ($base->in_emergency ? 'blueIcon' : 'greenIcon') : 'redIcon' }}
                 });
                 var popupContent = `
                     <div class="card">
@@ -203,7 +212,7 @@
                     </div>
                 `;
                 marker.bindPopup(popupContent);
-                marker.bindTooltip('{{ $base->name }}');
+                marker.bindTooltip('{{ $base->name }}{{ $base->is_operative ? ($base->in_emergency ? ' (En emergencia)' : ' Operativa') : ' (Clave 2)' }}').openTooltip();
                 group.addLayer(marker);
             @endforeach
 

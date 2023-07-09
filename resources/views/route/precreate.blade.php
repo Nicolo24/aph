@@ -23,28 +23,28 @@
                         {{ route('routes.create') }}
                         <form>
                             <div class="input-group mb-3">
-                                <input type="text" id="address" class="form-control" placeholder="Ingresa una dirección">
+                                <input type="text" id="address" class="form-control" placeholder="Ingresa una dirección" onkeydown="handleKeyPress(event)" aria-label="Ingresa una dirección" aria-describedby="search-button">
                                 <button class="btn btn-primary" type="button" id="search-button"><i class="fas fa-search"></i></button>
                             </div>
                         </form>
 
-                            <div class="flex-grow-1">
+                        <div class="flex-grow-1">
 
-                                <div class="card">
-                                    <div class="card-header">Mapa</div>
-                                    <div class="card-body">
-                                        <div id="mapid" style="height: 400px"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card m1-2">
-                                <div class="card-header">Rutas disponibles</div>
+                            <div class="card">
+                                <div class="card-header">Mapa</div>
                                 <div class="card-body">
-                                    <table id="table-possible-routes" class="table table-responsive">
-                                    </table>
+                                    <div id="mapid" style="height: 400px"></div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="card m1-2">
+                            <div class="card-header">Rutas disponibles</div>
+                            <div class="card-body">
+                                <table id="table-possible-routes" class="table table-responsive">
+                                </table>
+                            </div>
+                        </div>
 
 
                         <script>
@@ -76,6 +76,14 @@
                                 getPossibleRoutes();
 
                             });
+
+                            function handleKeyPress(event) {
+                                if (event.keyCode === 13) {
+                                    event.preventDefault();
+                                    searchAddress(inputAddress, emergencyMarker);
+                                    getPossibleRoutes();
+                                }
+                            }
 
                             function getReverseGeocode(latitude, longitude, addressInput) {
                                 var apiUrl = '{{ route('items.getReverseGeocode') }}?latlng=' + encodeURIComponent(latitude) + ',' +
@@ -138,7 +146,7 @@
                                 map.setView([latitude, longitude], 15);
                             }
 
-                            
+
 
                             function getPossibleRoutes() {
                                 var apiUrl = '{{ route('items.getPossibleRoutes') }}?address=' + encodeURIComponent(inputAddress.value)
@@ -167,7 +175,7 @@
                                     cell2.innerHTML = "<b>Recurso</b>";
                                     cell3.innerHTML = "<b>Distancia</b>";
                                     cell4.innerHTML = "<b>Tiempo</b>";
-                                    
+
                                     //order data.routes by data.routes.time ascending
                                     data.routes.sort(function(a, b) {
                                         return a.time - b.time;
@@ -195,7 +203,8 @@
                                         cell2.innerHTML = nombre;
                                         cell3.innerHTML = distancia;
                                         cell4.innerHTML = tiempo;
-                                        cell5.innerHTML = `<a href="{{route('routes.create')}}?resource_id=${data.routes[i].resource.id}&base_lat=${base_lat}&base_lng=${base_lng}&destination_lat=${destination_lat}&destination_lng=${destination_lng}&destination_address=${inputAddress.value}" class="btn btn-primary">Seleccionar</a>`;
+                                        cell5.innerHTML =
+                                            `<a href="{{ route('routes.create') }}?resource_id=${data.routes[i].resource.id}&base_lat=${base_lat}&base_lng=${base_lng}&destination_lat=${destination_lat}&destination_lng=${destination_lng}&destination_address=${inputAddress.value}" class="btn btn-primary">Seleccionar</a>`;
 
                                     }
 
@@ -209,10 +218,6 @@
                                 searchAddress(inputAddress, emergencyMarker);
                                 getPossibleRoutes();
                             });
-
-
-
-
                         </script>
 
 

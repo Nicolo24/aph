@@ -125,6 +125,12 @@ class Base extends Model
         })->count() > 0 ?? false;
     }
 
+    public function getInEmergencyAttribute(){
+        return $this->assignations->where('is_active', 1)->filter(function($item){
+            return $item->resource->in_emergency == true;
+        })->count() > 0 ?? false;
+    }
+
     public function getIconAttribute(){
         return $this->getIsOperativeAttribute() ? "🟩" : "🟥";
     }

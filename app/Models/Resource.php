@@ -126,7 +126,7 @@ class Resource extends Model
 
     public function getLastAssignationAttribute()
     {
-        return $this->assignations()->where('is_active', true)->with(['base','user'])->orderByDesc('created_at')->first() ?? false;
+        return $this->assignations()->where('is_active', true)->with(['base', 'user'])->orderByDesc('created_at')->first() ?? false;
     }
 
     public function getReporttypeIdAttribute()
@@ -148,7 +148,6 @@ class Resource extends Model
     {
         //where getIsOperativeAttribute is true and getInEmergencyAttribute is false and getIsAssignedAttribute is true
         return $this->getIsOperativeAttribute() && !$this->getInEmergencyAttribute() && $this->getIsAssignedAttribute();
-
     }
 
     public function getIconAttribute()
@@ -169,5 +168,70 @@ class Resource extends Model
     public function getWasOperativeIconAttribute($when)
     {
         return $this->getWasOperativeAttribute($when) ? "🟩" : "🟥";
+    }
+
+    public function getTimeStatsAttribute($start = null, $end = null)
+    {
+        $reports = $this->reports()->get();
+        $time = $reports->first()->created_at->diffInSeconds(now());
+
+        $total_operative = 0;
+        $total_not_operative = 0;
+        $total_emergency = 0;
+        $prev_report = $reports->first();
+        $last_report = $reports->last();
+
+        foreach ($reports as $report) {
+            $current_report = $report->created_at;
+            $prev_report_type = $prev_report->reporttype;
+
+            if ($prev_report_type->is_operative) {
+                $total_operative += $current_report->diffInSeconds($prev_report->created_at);
+            } else {
+                $total_not_operative += $current_report->diffInSeconds($prev_report->created_at);
+            }
+
+            if ($prev_report_type->in_emergency) {
+                $total_emergency += $current_report->diffInSeconds($prev_report->created_at);
+            }
+
+            if ($report === $last_report) {
+                if ($report->reporttype->is_operative) {
+                    $total_operative += now()->diffInSeconds($current_report);
+                } else {
+                    $total_not_operative += now()->diffInSeconds($current_report);
+                }
+
+                if ($report->reporttype->in_emergency) {
+                    $total_emergency += now()->diffInSeconds($current_report);
+                }
+            }
+
+            $prev_report = $report;
+        }
+
+        $formatTime = function ($total) {
+            $days = floor($total / 86400);
+            $hours = floor(($total / 3600) % 24);
+            $minutes = floor(($total / 60) % 60);
+            $seconds = $total % 60;
+            return $days . "d, " . $hours . "h, " . $minutes . "m, " . $seconds . "s";
+        };
+
+        $total_text = $formatTime($time);
+        $operative_text = $formatTime($total_operative);
+        $not_operative_text = $formatTime($total_not_operative);
+        $emergency_text = $formatTime($total_emergency);
+
+        return (object)[
+            'total' => $time,
+            'operative' => $total_operative,
+            'not_operative' => $total_not_operative,
+            'emergency' => $total_emergency,
+            'total_text' => $total_text,
+            'operative_text' => $operative_text,
+            'not_operative_text' => $not_operative_text,
+            'emergency_text' => $emergency_text
+        ];
     }
 }

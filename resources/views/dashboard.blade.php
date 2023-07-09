@@ -13,7 +13,7 @@
     <div class="card" id="bases-card">
         <div class="card-header">
             <div class="float-start">
-                Mapa
+                Panel de control
             </div>
             <div class="float-end d-flex justify-content-between">
                 <div class="form-check ">
@@ -79,8 +79,8 @@
                         }
                     });
                 </script>
-                <button type="button" class="btn btn-sm btn-outline-secondary ms-4"
-                    onclick="location.reload()">Refrescar</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary ms-4" onclick="location.reload()">Refrescar</button>
+                <a type="button" class="btn btn-sm btn-danger ms-4" href="{{ route('route.precreate') }}">Despachar un recurso</a>
 
             </div>
         </div>
@@ -129,6 +129,10 @@
                                     <th scope="col">Recurso</th>
                                     <th scope="col">Asignado Por</th>
                                     <th scope="col">Desde</th>
+                                    <th scope="col">T. Total</th>
+                                    <th scope="col">T. Operativo</th>
+                                    <th scope="col">T. No operativo</th>
+                                    <th scope="col">T. Emergencia</th>
                                     <th scope="col" class=" text-end"></th>
                                 </tr>
                             </thead>
@@ -183,6 +187,10 @@
                                         </td>
                                         <td class="align-middle">{{ $assignation->user->name }}</td>
                                         <td class="align-middle">{{ $assignation->created_at->subHours(5) }}</td>
+                                        <td class="align-middle">{{ str($assignation->resource->time_stats->total_text) }}</td> 
+                                        <td class="align-middle">{{ str($assignation->resource->time_stats->operative_text) }}</td>
+                                        <td class="align-middle">{{ str($assignation->resource->time_stats->not_operative_text) }}</td>
+                                        <td class="align-middle">{{ str($assignation->resource->time_stats->emergency_text) }}</td>
 
 
 
