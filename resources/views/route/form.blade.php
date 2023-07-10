@@ -283,10 +283,11 @@
 
             }
 
-            searchAddress(emergencyAddressInput, emergencyLatitudeInput, emergencyLongitudeInput, emergencyMarker);
+            updateMarkerPosition(emergencyLatitudeInput.value, emergencyLongitudeInput.value, emergencyLatitudeInput, emergencyLongitudeInput, emergencyMarker);
             //actualizar posicion del marcador de inicio a la latitud y longitud de los inputs de start
             updateMarkerPosition(startLatitudeInput.value, startLongitudeInput.value, startLatitudeInput,
                 startLongitudeInput, startMarker);
+            
             //actualizar posicion del marcador de destino a la latitud y longitud de los inputs de destination
             updateMarkerPosition(parseFloat(destinationLatitudeInput.value) + 0.0002, destinationLongitudeInput.value,
                 destinationLatitudeInput,
