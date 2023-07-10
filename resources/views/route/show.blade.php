@@ -137,7 +137,7 @@
                                             var goPoints = response.go_points;
                                             var returnPoints = response.return_points;
                                             //routePolyline.setLatLngs(points);
-                                            goPolilyne.setLatLngs(goPoints);
+                                            goPolyline.setLatLngs(goPoints);
                                             returnPolyline.setLatLngs(returnPoints);
                                         }
                                     }
