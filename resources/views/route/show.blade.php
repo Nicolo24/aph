@@ -134,8 +134,8 @@
                                         if (xhr.status === 200) {
                                             var response = JSON.parse(xhr.responseText);
                                             var points = response.points;
-                                            var goPoints = response.goPoints;
-                                            var returnPoints = response.returnPoints;
+                                            var goPoints = response.go_points;
+                                            var returnPoints = response.return_points;
                                             //routePolyline.setLatLngs(points);
                                             goPolilyne.setLatLngs(goPoints);
                                             returnPolyline.setLatLngs(returnPoints);
