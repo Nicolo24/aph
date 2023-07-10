@@ -128,6 +128,14 @@ class ApiRouteController extends Controller
             ];
         });
 
+        if ($route->pickup_time == null) {
+            return response()->json([
+                'points' => $points, 
+                'go_points' => $points, 
+                'return_points' => [],
+            ]);
+        }
+
         $go_points = $route->locations->where('created_at', '<=', $route->pickup_time)->map(function($location) {
             return [
                 $location->latitude, 
