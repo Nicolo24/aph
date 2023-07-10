@@ -140,7 +140,11 @@ class ApiRouteController extends Controller
                 $location->latitude, 
                 $location->longitude
             ];
-        });
-        return response()->json(['points' => $points, 'go_points' => $go_points, 'return_points' => $return_points]);
+        })->values();
+        return response()->json([
+            'points' => $points, 
+            'go_points' => $go_points, 
+            'return_points' => $return_points,
+        ]);
     }
 }
