@@ -60,7 +60,7 @@ class ApiRouteController extends Controller
     public function getAvailableRoutes()
     {
         $user = auth()->user();
-        $routes = $user->available_routes;
+        $routes = $user->available_routes->load('resource');
         if($routes->count() == 0) {
             return response()->json(['routes'=>$routes, 'message' => 'No available routes']);
         }else {

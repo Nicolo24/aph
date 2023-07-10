@@ -8,7 +8,7 @@
                 <select id="center_id" class="form-control @error('center_id') is-invalid @enderror" name="center_id"
                     required>
                     @foreach (\App\Models\Center::all() as $center)
-                        <option value="{{ $center->id }}" {{ ($resource->center_id ?? Auth::user()->center_id) ? 'selected' : ''}}>{{ $center->name }}</option>
+                        <option value="{{ $center->id }}" {{ ($resource->center_id ?? Auth::user()->center_id) == $center->id ? 'selected' : ''}}>{{ $center->name }}</option>
                     @endforeach
                 </select>
 
