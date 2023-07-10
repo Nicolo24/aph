@@ -116,11 +116,11 @@
                             map.fitBounds(group.getBounds());
 
                             var routePolyline = L.polyline([], {
-                                color: 'green'
+                                color: 'red'
                             }).addTo(map);
 
                             var goPolyline = L.polyline([], {
-                                color: 'red'
+                                color: 'green'
                             }).addTo(map);
 
                             var returnPolyline = L.polyline([], {
