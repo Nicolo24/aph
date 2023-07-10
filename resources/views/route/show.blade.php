@@ -119,7 +119,7 @@
                                 color: 'green'
                             }).addTo(map);
 
-                            var goPolilyne = L.polyline([], {
+                            var goPolyline = L.polyline([], {
                                 color: 'red'
                             }).addTo(map);
 
