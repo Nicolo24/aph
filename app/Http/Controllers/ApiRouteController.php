@@ -122,8 +122,25 @@ class ApiRouteController extends Controller
     {
         $route = \App\Models\Route::find($id);
         $points = $route->locations->map(function($location) {
-            return [$location->latitude, $location->longitude];
+            return [
+                $location->latitude, 
+                $location->longitude
+            ];
         });
-        return response()->json(['points' => $points]);
+
+        $go_points = $route->locations->where('created_at', '<=', $route->pickup_time)->map(function($location) {
+            return [
+                $location->latitude, 
+                $location->longitude
+            ];
+        });
+
+        $return_points = $route->locations->where('created_at', '>', $route->pickup_time)->map(function($location) {
+            return [
+                $location->latitude, 
+                $location->longitude
+            ];
+        });
+        return response()->json(['points' => $points, 'go_points' => $go_points, 'return_points' => $return_points]);
     }
 }

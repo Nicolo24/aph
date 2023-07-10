@@ -116,7 +116,15 @@
                             map.fitBounds(group.getBounds());
 
                             var routePolyline = L.polyline([], {
+                                color: 'green'
+                            }).addTo(map);
+
+                            var goPolilyne = L.polyline([], {
                                 color: 'red'
+                            }).addTo(map);
+
+                            var returnPolyline = L.polyline([], {
+                                color: 'blue'
                             }).addTo(map);
 
                             function fetchRoutePoints() {
@@ -126,7 +134,11 @@
                                         if (xhr.status === 200) {
                                             var response = JSON.parse(xhr.responseText);
                                             var points = response.points;
-                                            routePolyline.setLatLngs(points);
+                                            var goPoints = response.goPoints;
+                                            var returnPoints = response.returnPoints;
+                                            //routePolyline.setLatLngs(points);
+                                            goPolilyne.setLatLngs(goPoints);
+                                            returnPolyline.setLatLngs(returnPoints);
                                         }
                                     }
                                 };
