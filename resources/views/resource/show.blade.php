@@ -8,7 +8,7 @@
     <section class="d-flex justify-content-center">
         <div class="card">
             <div class="card-header">
-                Historic of reports
+                Reportes del recurso
             </div>
             <div class="card-body">
                 <table class="table table-responsive">
@@ -89,8 +89,8 @@
                     <strong>Activo:</strong>
                     {{ $resource->is_active ? 'SI' : 'NO' }}
                 </div>
-                <a class="btn btn-primary" href="{{ route('routes.create', ['resource_id' => $resource->id]) }}">Create
-                    Route</a>
+                <a class="btn btn-primary" href="{{ route('routes.create', ['resource_id' => $resource->id]) }}">Crear
+                    Ruta</a>
 
 
             </div>
