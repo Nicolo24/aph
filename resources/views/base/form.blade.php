@@ -95,7 +95,7 @@
             {{ Form::label('search', 'Buscar') }}
             {{ Form::text('search', $base->name, ['id' => 'search', 'class' => 'form-control', 'placeholder' => 'Ingresa una dirección']) }}
 
-            <button type='button' id="search-button" class='btn btn-primary'>Search</button>
+            <button type='button' id="search-button" class='btn btn-primary'>Buscar</button>
         </div>
 
         <div class="form-group">
