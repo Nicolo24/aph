@@ -9,13 +9,12 @@
 
 
         <div class="form-group">
-            {{ Form::label('resource_id') }}
+            {{ Form::label('Recurso') }}
             {{ Form::select('resource_id', Auth::user()->resources->pluck('name', 'id'), $route->resource_id, ['class' => 'form-control' . ($errors->has('resource_id') ? ' is-invalid' : ''), 'placeholder' => 'Select Resource']) }}
             {!! $errors->first('resource_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div id="map" style="height: 400px; width: 100%;"></div>
         <div class="form-group">
-            {{ Form::label('route locations') }}
             <div class="accordion" id="accLocations">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
@@ -26,18 +25,18 @@
                     <div id="collapseOne" class="accordion-collapse collapse {{ $warning ?? false ? 'show' : '' }}" aria-labelledby="headingOne" data-bs-parent="#accLocations">
                         <div class="accordion-body">
                             <div class="form-group">
-                                {{ Form::label('start_address') }}
+                                {{ Form::label('Dirección') }}
                                 {{ Form::text('start_address', $route->start_address, ['class' => 'form-control' . ($errors->has('start_address') ? ' is-invalid' : ''), 'placeholder' => 'Dirección', 'id' => 'start_address']) }}
                                 {!! $errors->first('start_address', '<div class="invalid-feedback">:message</div>') !!}
                                 <button type="button" class="btn btn-primary" id="start_button">Search</button>
                             </div>
                             <div class="form-group">
-                                {{ Form::label('start_latitude') }}
+                                {{ Form::label('Latitud') }}
                                 {{ Form::text('start_latitude', $route->start_latitude, ['class' => 'form-control' . ($errors->has('start_latitude') ? ' is-invalid' : ''), 'placeholder' => 'Latitud', 'id' => 'start_latitude']) }}
                                 {!! $errors->first('start_latitude', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('start_longitude') }}
+                                {{ Form::label('Longitud') }}
                                 {{ Form::text('start_longitude', $route->start_longitude, ['class' => 'form-control' . ($errors->has('start_longitude') ? ' is-invalid' : ''), 'placeholder' => 'Longitud', 'id' => 'start_longitude']) }}
                                 {!! $errors->first('start_longitude', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
@@ -53,18 +52,18 @@
                     <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accLocations">
                         <div class="accordion-body">
                             <div class="form-group">
-                                {{ Form::label('emergency_address') }}
+                                {{ Form::label('Dirección') }}
                                 {{ Form::text('emergency_address', $route->emergency_address, ['class' => 'form-control' . ($errors->has('emergency_address') ? ' is-invalid' : ''), 'placeholder' => 'Direccion', 'id' => 'emergency_address']) }}
                                 {!! $errors->first('emergency_address', '<div class="invalid-feedback">:message</div>') !!}
                                 <button type="button" class="btn btn-primary" id="emergency_button">Search</button>
                             </div>
                             <div class="form-group">
-                                {{ Form::label('emergency_latitude') }}
+                                {{ Form::label('Latitud') }}
                                 {{ Form::text('emergency_latitude', $route->emergency_latitude, ['class' => 'form-control' . ($errors->has('emergency_latitude') ? ' is-invalid' : ''), 'placeholder' => 'Latitud', 'id' => 'emergency_latitude']) }}
                                 {!! $errors->first('emergency_latitude', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('emergency_longitude') }}
+                                {{ Form::label('Longitud') }}
                                 {{ Form::text('emergency_longitude', $route->emergency_longitude, ['class' => 'form-control' . ($errors->has('emergency_longitude') ? ' is-invalid' : ''), 'placeholder' => 'Longitud', 'id' => 'emergency_longitude']) }}
                                 {!! $errors->first('emergency_longitude', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
@@ -80,18 +79,18 @@
                     <div id="collapseThree" class="accordion-collapse collapse {{ $warning ?? false ? 'show' : '' }}" aria-labelledby="headingThree" data-bs-parent="#accLocations">
                         <div class="accordion-body">
                             <div class="form-group">
-                                {{ Form::label('destination_address') }}
+                                {{ Form::label('Dirección') }}
                                 {{ Form::text('destination_address', $route->destination_address, ['class' => 'form-control' . ($errors->has('destination_address') ? ' is-invalid' : ''), 'placeholder' => 'Dirección', 'id' => 'destination_address']) }}
                                 {!! $errors->first('destination_address', '<div class="invalid-feedback">:message</div>') !!}
                                 <button type="button" class="btn btn-primary" id="destination_button">Search</button>
                             </div>
                             <div class="form-group">
-                                {{ Form::label('destination_latitude') }}
+                                {{ Form::label('Latitud') }}
                                 {{ Form::text('destination_latitude', $route->destination_latitude, ['class' => 'form-control' . ($errors->has('destination_latitude') ? ' is-invalid' : ''), 'placeholder' => 'Latitud', 'id' => 'destination_latitude']) }}
                                 {!! $errors->first('destination_latitude', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('destination_longitude') }}
+                                {{ Form::label('Longitud') }}
                                 {{ Form::text('destination_longitude', $route->destination_longitude, ['class' => 'form-control' . ($errors->has('destination_longitude') ? ' is-invalid' : ''), 'placeholder' => 'Longitud', 'id' => 'destination_longitude']) }}
                                 {!! $errors->first('destination_longitude', '<div class="invalid-feedback">:message</div>') !!}
                             </div>
@@ -166,17 +165,17 @@
                 })
             }).addTo(map);
 
-            startMarker.bindTooltip("Start", {
+            startMarker.bindTooltip("Inicio", {
                 permanent: true,
                 direction: 'left'
             });
 
-            emergencyMarker.bindTooltip("Emergency", {
+            emergencyMarker.bindTooltip("Emergencia", {
                 permanent: true,
                 direction: 'bottom'
             });
 
-            destinationMarker.bindTooltip("Destination", {
+            destinationMarker.bindTooltip("Destino", {
                 permanent: true,
                 direction: 'right'
             });
@@ -314,7 +313,7 @@
 
 
         <div class="form-group">
-            {{ Form::label('instructions') }}
+            {{ Form::label('Instrucciones') }}
             {{ Form::text('instructions', $route->instructions, ['class' => 'form-control' . ($errors->has('instructions') ? ' is-invalid' : ''), 'placeholder' => 'Instrucciones']) }}
             {!! $errors->first('instructions', '<div class="invalid-feedback">:message</div>') !!}
         </div>
