@@ -14,55 +14,68 @@
                             <span class="card-title">Seguimiento de la ruta</span>
                         </div>
                         <div class="float-end">
-                            <a class="btn btn-primary" href="{{ route('routes.index') }}"> Back</a>
+
                         </div>
                     </div>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 
 
                     <div class="card-body">
+                        <div class="float-start">
 
-                        <div class="form-group">
-                            <strong>Recurso:</strong>
-                            <span id="resource_id"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Usuario:</strong>
-                            <span id="user_id"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Punto de inicio:</strong>
-                            <span id="start_address"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Punto de recogida:</strong>
-                            <span id="emergency_address"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Punto de destino:</strong>
-                            <span id="destination_address"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Hora de Inicio:</strong>
-                            <span id="start_time"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Hora de recogida:</strong>
-                            <span id="pickup_time"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Hora de fin:</strong>
-                            <span id="end_time"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Instrucciones:</strong>
-                            <span id="instructions"></span>
-                        </div>
-                        <div class="form-group">
-                            <strong>Estado:</strong>
-                            <span id="status"></span>
+                            <div class="form-group">
+                                <strong>Recurso:</strong>
+                                <span id="resource_id"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Usuario:</strong>
+                                <span id="user_id"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Punto de inicio:</strong>
+                                <span id="start_address"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Punto de recogida:</strong>
+                                <span id="emergency_address"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Punto de destino:</strong>
+                                <span id="destination_address"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Hora de Inicio:</strong>
+                                <span id="start_time"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Hora de recogida:</strong>
+                                <span id="pickup_time"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Hora de fin:</strong>
+                                <span id="end_time"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Instrucciones:</strong>
+                                <span id="instructions"></span>
+                            </div>
+                            <div class="form-group">
+                                <strong>Estado:</strong>
+                                <span id="status"></span>
+                            </div>
                         </div>
 
+                        <div class="float-end">
+
+
+                            <h6><i class="fas fa-circle" style="color: green;"></i> = Ruta de ida</h6>
+                            <h6><i class="fas fa-circle" style="color: blue;"></i> = Ruta de regreso</h6>
+                            <h6><i class="fas fa-map-marker-alt" style="color: green;"></i> = Punto de inicio</h6>
+                            <h6><i class="fas fa-map-marker-alt" style="color: red;"></i> = Punto de recogida</h6>
+                            <h6><i class="fas fa-map-marker-alt" style="color: blue;"></i> = Punto de destino</h6>
+
+
+                        </div>
                         <div id="map" style="height: 400px;width:100%"></div>
 
                         <script>
@@ -173,15 +186,21 @@
                                 // Función para actualizar el contenido en el documento HTML
                                 function updateContent(response) {
                                     // Actualizar los elementos HTML con los datos de la respuesta
-                                    document.getElementById("resource_id").textContent = response.route.resource ? response.route.resource.name : 'Sin asignar';
-                                    document.getElementById("user_id").textContent = response.route.user ? response.route.user.name : 'Sin asignar';
+                                    document.getElementById("resource_id").textContent = response.route.resource ? response.route
+                                        .resource.name : 'Sin asignar';
+                                    document.getElementById("user_id").textContent = response.route.user ? response.route.user.name :
+                                        'Sin asignar';
                                     document.getElementById("start_address").textContent = response.route.start_address;
                                     document.getElementById("emergency_address").textContent = response.route.emergency_address;
                                     document.getElementById("destination_address").textContent = response.route.destination_address;
-                                    document.getElementById("start_time").textContent = response.route.start_time ? response.route.start_time : 'Sin iniciar';
-                                    document.getElementById("pickup_time").textContent = response.route.pickup_time ? response.route.pickup_time : 'Sin recoger';
-                                    document.getElementById("end_time").textContent = response.route.end_time ? response.route.end_time : 'Sin finalizar';
-                                    document.getElementById("instructions").textContent = response.route.instructions ? response.route.instructions : 'Sin instrucciones';
+                                    document.getElementById("start_time").textContent = response.route.start_time ? response.route
+                                        .start_time : 'Sin iniciar';
+                                    document.getElementById("pickup_time").textContent = response.route.pickup_time ? response.route
+                                        .pickup_time : 'Sin recoger';
+                                    document.getElementById("end_time").textContent = response.route.end_time ? response.route
+                                        .end_time : 'Sin finalizar';
+                                    document.getElementById("instructions").textContent = response.route.instructions ? response.route
+                                        .instructions : 'Sin instrucciones';
                                     document.getElementById("status").textContent = response.route.status;
 
                                     // Realizar la siguiente llamada AJAX después de 5 segundos

@@ -55,20 +55,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Panel de control') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('historic') }}">{{ __('Historico') }}</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Registro
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('reports.index') }}">{{ __('Reportes') }}</a>
-                                <a class="dropdown-item" href="{{ route('assignations.index') }}">{{ __('Asignaciones') }}</a>
-                            </div>
-                        </li>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -84,12 +70,13 @@
 
                                 <a class="dropdown-item" href="{{ route('bases.index') }}">{{ __('Bases') }}</a>
                                 <a class="dropdown-item" href="{{ route('resources.index') }}">{{ __('Recursos') }}</a>
+                                <a class="dropdown-item" href="{{ route('routes.index') }}">{{ __('Rutas') }}</a>
                             </div>
                         </li>
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('classifications.index') }}">{{ __('Clasificaciones') }}</a>
+                            <a class="nav-link" href="{{ route('classifications.index') }}">{{ __('Parametrización') }}</a>
                         </li>
                     </ul>
 

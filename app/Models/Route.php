@@ -75,13 +75,13 @@ class Route extends Model
     public function getStatusAttribute()
     {
         if($this->start_time == null){
-            return "Pending";
+            return "Pendiente";
         }else if($this->pickup_time == null){
-            return "Started";
+            return "Iniciada";
         }else if($this->end_time == null){
-            return "Picked Up";
+            return "Persona recogida";
         }else{
-            return "Completed";
+            return "Completada";
         }
     }
     
