@@ -79,7 +79,7 @@
 
 
         <div class="form-group">
-            {{ Form::label('resource type') }}
+            {{ Form::label('Tipo de recurso') }}
 
             <div>
                 <select id="resourcetype_id" class="form-control @error('basetype') is-invalid @enderror" name="resourcetype_id"
@@ -102,15 +102,15 @@
             {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('comment') }}
-            {{ Form::text('comment', $resource->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comment']) }}
+            {{ Form::label('Comentario') }}
+            {{ Form::text('comment', $resource->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comentario']) }}
             {!! $errors->first('comment', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('is_active') }}
+            {{ Form::label('Activo') }}
             <select name="is_active" id="is_active" class="form-control">
-                <option value="1">Active</option>
-                <option value="0">Inactive</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
             </select>
             {!! $errors->first('is_active', '<div class="invalid-feedback">:message</div>') !!}
 

@@ -22,8 +22,8 @@
             {!! $errors->first('created_at', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('comment') }}
-            {{ Form::text('comment', $report->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comment']) }}
+            {{ Form::label('Comentario') }}
+            {{ Form::text('comment', $report->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comentario']) }}
             {!! $errors->first('comment', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
