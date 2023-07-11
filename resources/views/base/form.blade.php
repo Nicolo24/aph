@@ -110,12 +110,12 @@
 
         <div class="form-group">
             {{ Form::label('latitude', 'Latitud') }}
-            {{ Form::text('latitude', $base->latitude, ['id' => 'latitude', 'class' => 'form-control' . ($errors->has('latitude') ? ' is-invalid' : ''), 'placeholder' => 'Latitude']) }}
+            {{ Form::text('latitude', $base->latitude, ['id' => 'latitude', 'class' => 'form-control' . ($errors->has('latitude') ? ' is-invalid' : ''), 'placeholder' => 'Latitud']) }}
         </div>
 
         <div class="form-group">
             {{ Form::label('longitude', 'Longitud') }}
-            {{ Form::text('longitude', $base->longitude, ['id' => 'longitude', 'class' => 'form-control' . ($errors->has('longitude') ? ' is-invalid' : ''), 'placeholder' => 'Longitude']) }}
+            {{ Form::text('longitude', $base->longitude, ['id' => 'longitude', 'class' => 'form-control' . ($errors->has('longitude') ? ' is-invalid' : ''), 'placeholder' => 'Longitud']) }}
         </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -174,7 +174,7 @@
 
         <div class="form-group">
             {{ Form::label('Comentario') }}
-            {{ Form::text('comment', $base->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comment']) }}
+            {{ Form::text('comment', $base->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comentario']) }}
             {!! $errors->first('comment', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

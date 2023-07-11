@@ -10,7 +10,7 @@
 
         <div class="form-group">
             {{ Form::label('Recurso') }}
-            {{ Form::select('resource_id', Auth::user()->resources->pluck('name', 'id'), $route->resource_id, ['class' => 'form-control' . ($errors->has('resource_id') ? ' is-invalid' : ''), 'placeholder' => 'Select Resource']) }}
+            {{ Form::select('resource_id', Auth::user()->resources->pluck('name', 'id'), $route->resource_id, ['class' => 'form-control' . ($errors->has('resource_id') ? ' is-invalid' : ''), 'placeholder' => 'Seleccionar recurso']) }}
             {!! $errors->first('resource_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div id="map" style="height: 400px; width: 100%;"></div>
@@ -28,7 +28,7 @@
                                 {{ Form::label('Dirección') }}
                                 {{ Form::text('start_address', $route->start_address, ['class' => 'form-control' . ($errors->has('start_address') ? ' is-invalid' : ''), 'placeholder' => 'Dirección', 'id' => 'start_address']) }}
                                 {!! $errors->first('start_address', '<div class="invalid-feedback">:message</div>') !!}
-                                <button type="button" class="btn btn-primary" id="start_button">Search</button>
+                                <button type="button" class="btn btn-primary" id="start_button">Buscar</button>
                             </div>
                             <div class="form-group">
                                 {{ Form::label('Latitud') }}
@@ -55,7 +55,7 @@
                                 {{ Form::label('Dirección') }}
                                 {{ Form::text('emergency_address', $route->emergency_address, ['class' => 'form-control' . ($errors->has('emergency_address') ? ' is-invalid' : ''), 'placeholder' => 'Direccion', 'id' => 'emergency_address']) }}
                                 {!! $errors->first('emergency_address', '<div class="invalid-feedback">:message</div>') !!}
-                                <button type="button" class="btn btn-primary" id="emergency_button">Search</button>
+                                <button type="button" class="btn btn-primary" id="emergency_button">Buscar</button>
                             </div>
                             <div class="form-group">
                                 {{ Form::label('Latitud') }}
@@ -82,7 +82,7 @@
                                 {{ Form::label('Dirección') }}
                                 {{ Form::text('destination_address', $route->destination_address, ['class' => 'form-control' . ($errors->has('destination_address') ? ' is-invalid' : ''), 'placeholder' => 'Dirección', 'id' => 'destination_address']) }}
                                 {!! $errors->first('destination_address', '<div class="invalid-feedback">:message</div>') !!}
-                                <button type="button" class="btn btn-primary" id="destination_button">Search</button>
+                                <button type="button" class="btn btn-primary" id="destination_button">Buscar</button>
                             </div>
                             <div class="form-group">
                                 {{ Form::label('Latitud') }}
