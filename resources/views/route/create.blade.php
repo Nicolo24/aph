@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Route</span>
+                        <span class="card-title">Crear Ruta</span>
                     </div>
                     <div class="card-body">
 

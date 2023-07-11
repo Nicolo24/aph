@@ -11,7 +11,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Report</span>
+                        <span class="card-title">Crear Reporte</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('reports.store') }}"  role="form" enctype="multipart/form-data">

@@ -2,7 +2,7 @@
     <div class="box-body">
 
         <div class="form-group">
-            {{ Form::label('center') }}
+            {{ Form::label('centro') }}
 
             <div>
                 <select id="center_id" class="form-control @error('center_id') is-invalid @enderror" name="center_id" required>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('province') }}
+            {{ Form::label('provincia') }}
 
             <div>
                 <select id="province_id" class="form-control @error('province_id') is-invalid @enderror" name="province_id" required>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('zone') }}
+            {{ Form::label('zona') }}
 
             <div>
                 <select id="zone_id" class="form-control @error('province_id') is-invalid @enderror" name="zone_id" required>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('institution') }}
+            {{ Form::label('institución') }}
 
             <div>
                 <select id="institution_id" class="form-control @error('institution_id') is-invalid @enderror" name="institution_id" required>
@@ -105,7 +105,7 @@
 
         <div class="form-group">
             {{ Form::label('name', 'Name') }}
-            {{ Form::text('name', $base->name, ['id' => 'name', 'class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
+            {{ Form::text('name', $base->name, ['id' => 'name', 'class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
         </div>
 
         <div class="form-group">
@@ -189,6 +189,6 @@
 
     </div>
     <div class="box-footer mt-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

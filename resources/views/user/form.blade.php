@@ -2,7 +2,7 @@
     <div class="box-body">
 
         <div class="form-group">
-            {{ Form::label('center') }}
+            {{ Form::label('centro') }}
 
             <div>
                 <select id="center_id" class="form-control @error('center_id') is-invalid @enderror" name="center_id"
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('province') }}
+            {{ Form::label('provincia') }}
 
             <div>
                 <select id="province_id" class="form-control @error('province_id') is-invalid @enderror"
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('zone') }}
+            {{ Form::label('zona') }}
 
             <div>
                 <select id="zone_id" class="form-control @error('province_id') is-invalid @enderror" name="zone_id"
@@ -62,7 +62,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('institution') }}
+            {{ Form::label('institución') }}
 
             <div>
                 <select id="institution_id" class="form-control @error('institution_id') is-invalid @enderror"
@@ -83,7 +83,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('User type') }}
+            {{ Form::label('Tipo de usuario') }}
 
             <div>
                 <select id="usertype_id" class="form-control @error('usertype') is-invalid @enderror" name="usertype_id"
@@ -103,7 +103,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('Resource') }}
+            {{ Form::label('Recurso') }}
             <div>
                 <select id="resource_id" class="form-control @error('resource_id') is-invalid @enderror"
                     name="resource_id" required>
@@ -125,18 +125,18 @@
 
 
         <div class="form-group">
-            {{ Form::label('name') }}
-            {{ Form::text('name', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
+            {{ Form::label('Nombre') }}
+            {{ Form::text('name', $user->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('email') }}
-            {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
+            {{ Form::label('Correo') }}
+            {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Correo']) }}
             {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
     <div class="box-footer mt-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

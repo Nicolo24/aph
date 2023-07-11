@@ -250,7 +250,7 @@
                                         <th>Descripción</th>
                                         <th>Operativo</th>
                                         <th>En Emergencia</th>
-                                        <th>Icon</th>
+                                        <th>Icono</th>
 
                                         <th></th>
                                     </tr>

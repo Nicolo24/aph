@@ -2,8 +2,8 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('name') }}
-            {{ Form::text('name', $reporttype->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
+            {{ Form::label('Nombre') }}
+            {{ Form::text('name', $reporttype->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -28,6 +28,6 @@
 
     </div>
     <div class="box-footer mt-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

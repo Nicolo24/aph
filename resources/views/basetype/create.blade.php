@@ -12,7 +12,7 @@
 
         <div class="card card-default">
             <div class="card-header">
-                <span class="card-title">Create Basetype</span>
+                <span class="card-title">Crear Tipo de base</span>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('basetypes.store') }}" role="form" enctype="multipart/form-data">
