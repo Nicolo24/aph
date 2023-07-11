@@ -74,7 +74,7 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('base type') }}
+            {{ Form::label('Tipo de base') }}
 
             <div>
                 <select id="basetype_id" class="form-control @error('basetype') is-invalid @enderror" name="basetype_id" required>
@@ -92,29 +92,29 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('search', 'Search') }}
-            {{ Form::text('search', $base->name, ['id' => 'search', 'class' => 'form-control', 'placeholder' => 'Enter a place']) }}
+            {{ Form::label('search', 'Buscar') }}
+            {{ Form::text('search', $base->name, ['id' => 'search', 'class' => 'form-control', 'placeholder' => 'Ingresa una dirección']) }}
 
             <button type='button' id="search-button" class='btn btn-primary'>Search</button>
         </div>
 
         <div class="form-group">
-            {{ Form::label('place', 'Place') }}
+            {{ Form::label('place', 'Lugar') }}
             <select id="places-select" class='form-control'></select>
         </div>
 
         <div class="form-group">
-            {{ Form::label('name', 'Name') }}
+            {{ Form::label('name', 'Nombre') }}
             {{ Form::text('name', $base->name, ['id' => 'name', 'class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
         </div>
 
         <div class="form-group">
-            {{ Form::label('latitude', 'Latitude') }}
+            {{ Form::label('latitude', 'Latitud') }}
             {{ Form::text('latitude', $base->latitude, ['id' => 'latitude', 'class' => 'form-control' . ($errors->has('latitude') ? ' is-invalid' : ''), 'placeholder' => 'Latitude']) }}
         </div>
 
         <div class="form-group">
-            {{ Form::label('longitude', 'Longitude') }}
+            {{ Form::label('longitude', 'Longitud') }}
             {{ Form::text('longitude', $base->longitude, ['id' => 'longitude', 'class' => 'form-control' . ($errors->has('longitude') ? ' is-invalid' : ''), 'placeholder' => 'Longitude']) }}
         </div>
 
@@ -173,15 +173,15 @@
         </script>
 
         <div class="form-group">
-            {{ Form::label('comment') }}
+            {{ Form::label('Comentario') }}
             {{ Form::text('comment', $base->comment, ['class' => 'form-control' . ($errors->has('comment') ? ' is-invalid' : ''), 'placeholder' => 'Comment']) }}
             {!! $errors->first('comment', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('is_active') }}
+            {{ Form::label('Activo') }}
             <select name="is_active" id="is_active" class="form-control">
-                <option value="1">Active</option>
-                <option value="0">Inactive</option>
+                <option value="1">Activo</option>
+                <option value="0">Inactivo</option>
             </select>
             {!! $errors->first('is_active', '<div class="invalid-feedback">:message</div>') !!}
 
