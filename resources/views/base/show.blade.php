@@ -8,15 +8,15 @@
     <section class="d-flex justify-content-center">
         <div class="card">
             <div class="card-header">
-                Assignation table
+                Asignaciones de la base
             </div>
             <div class="card-body">
                 <table class="table table-responsive">
                     <thead>
                         <tr>
                             <th>Recurso</th>
-                            <th>From</th>
-                            <th>To</th>
+                            <th>Desde</th>
+                            <th>Hasta</th>
                             <th></th>
                         </tr>
                     </thead>

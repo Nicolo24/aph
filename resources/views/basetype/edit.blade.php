@@ -12,7 +12,7 @@
 
         <div class="card card-default">
             <div class="card-header">
-                <span class="card-title">Update Basetype</span>
+                <span class="card-title">Tipo de base</span>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ route('basetypes.update', $basetype->id) }}" role="form"

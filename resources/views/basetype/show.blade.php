@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    <span class="card-title">Show Basetype</span>
+                    <span class="card-title">Tipo de base</span>
                 </div>
                 <div class="float-end">
                     {{-- <a class="btn btn-primary" href="{{ route('classifications.index') }}"> Back</a> --}}

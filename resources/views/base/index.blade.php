@@ -41,10 +41,8 @@
                                 <th>Provincia</th>
                                 <th>Zona</th>
                                 <th>Institución</th>
-                                <th>Basetype</th>
+                                <th>Tipo</th>
                                 <th>Nombre</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
                                 <th>Comentario</th>
                                 <th>Activo</th>
 
@@ -62,8 +60,6 @@
                                     <td>{{ $base->institution->name }}</td>
                                     <td>{{ $base->basetype->name }}</td>
                                     <td>{{ $base->name }}</td>
-                                    <td>{{ $base->latitude }}</td>
-                                    <td>{{ $base->longitude }}</td>
                                     <td>{{ $base->comment }}</td>
                                     <td>{{ $base->is_active ? 'SI' : 'NO' }}</td>
 
