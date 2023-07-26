@@ -68,6 +68,14 @@ class ApiRouteController extends Controller
         }
     }
 
+    public function getRoute($id)
+    {
+        $route = \App\Models\Route::find($id);
+        $route->append('status');
+        $route->load(['user','resource','locations','resource.resourcetype']);
+        return response()->json(['route' => $route]);
+    }
+
     public function startRoute($id)
     {
         //create report for resource with reporttype where in emergency is true

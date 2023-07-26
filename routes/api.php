@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user/availability', [ApiRouteController::class, 'updateAvailability']);
     Route::get('/user/availability', [ApiRouteController::class, 'getAvailability']);
     Route::get('/routes/available', [ApiRouteController::class, 'getAvailableRoutes']);
+    Route::get('/routes/{id}', [ApiRouteController::class, 'getRoute']);
     Route::put('/routes/{id}/start', [ApiRouteController::class, 'startRoute']);
     Route::put('/routes/{id}/informPickedUp', [ApiRouteController::class, 'informPickedUp']);
     Route::post('/routes/{id}/location', [ApiRouteController::class, 'sendLocation']);
